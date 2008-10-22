@@ -1,0 +1,71 @@
+# HYPHENATOR WP-PLUGIN
+# Copyright (C) 2008 Benedict Blümel
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: hyphenator\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-10-12 00:00+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: options.php:29
+#: options.php:40
+#: options.php:51
+#: options.php:62
+#: options.php:74
+#: options.php:89
+msgid "default"
+msgstr ""
+
+#: options.php:51
+msgid "none"
+msgstr ""
+
+#: options.php:89
+msgid "no"
+msgstr ""
+
+#: options.php:96
+msgid "Save Changes"
+msgstr ""
+
+#: options.php:17
+#: plugin.php:33
+msgid "Hyphenator Options"
+msgstr ""
+
+#: options.php:23
+msgid "minimal length of words"
+msgstr ""
+
+#: options.php:34
+msgid "hyphen character"
+msgstr ""
+
+#: options.php:45
+msgid "exceptions"
+msgstr ""
+
+#: options.php:56
+msgid "class name of content to hyphenate"
+msgstr ""
+
+#: options.php:68
+msgid "filtered languages"
+msgstr ""
+
+#: options.php:79
+msgid "use Hyphenator.js from developer trunk"
+msgstr ""
+
+#: options.php:89
+msgid "security risk"
+msgstr ""

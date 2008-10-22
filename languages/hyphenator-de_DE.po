@@ -1,0 +1,65 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: hyphenator\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-10-12 00:00+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: options.php:29
+#: options.php:40
+#: options.php:51
+#: options.php:62
+#: options.php:74
+#: options.php:89
+msgid "default"
+msgstr "Voreinstellung"
+
+#: options.php:51
+msgid "none"
+msgstr "keine"
+
+#: options.php:89
+msgid "no"
+msgstr "nein"
+
+#: options.php:96
+msgid "Save Changes"
+msgstr "Änderungen speichern"
+
+#: options.php:17
+#: plugin.php:33
+msgid "Hyphenator Options"
+msgstr "Hyphenator-Einstellungen"
+
+#: options.php:23
+msgid "minimal length of words"
+msgstr "minimale Länge von Wörtern"
+
+#: options.php:34
+msgid "hyphen character"
+msgstr "Trennzeichen"
+
+#: options.php:45
+msgid "exceptions"
+msgstr "Ausnahmen"
+
+#: options.php:56
+msgid "class name of content to hyphenate"
+msgstr "Klassen-Name des zu trennenden Inhalts"
+
+#: options.php:68
+msgid "filtered languages"
+msgstr "zu filternde Sprachen"
+
+#: options.php:79
+msgid "use Hyphenator.js from developer trunk"
+msgstr "benutze Hyphenator.js vom Entwickler-Zweig"
+
+#: options.php:89
+msgid "security risk"
+msgstr "Sicherheitsrisiko"
