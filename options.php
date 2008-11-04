@@ -8,6 +8,7 @@ if ('process' == $_POST['stage']) {
     update_option('hyphenator_addexceptions', $_POST['hyphenator_addexceptions']);
     update_option('hyphenator_classname', $_POST['hyphenator_classname']);
     update_option('hyphenator_languages', $_POST['hyphenator_languages']);
+    update_option('hyphenator_displaytogglebox', $_POST['hyphenator_displaytogglebox']);
     update_option('hyphenator_usetrunk', $_POST['hyphenator_usetrunk']);
 }
 ?>
@@ -72,6 +73,21 @@ if ('process' == $_POST['stage']) {
         echo("\n<input name=\"hyphenator_languages\" type=\"text\" size=\"10\" value=\"{$hyphenator_languages}\" />\n");
         ?>
         <p><small><?php _e('default', 'hyphenator'); echo ": en,de,fr,nl" ?></small></p>
+        </td>
+        </tr>
+
+        <tr valign="baseline">
+        <th scope="row"><?php _e('display an on-off switch', 'hyphenator') ?></th> 
+        <td>
+        <?php
+        $hyphenator_displaytogglebox = get_option('hyphenator_displaytogglebox');
+		if ($hyphenator_displaytogglebox == 1) {
+        	echo("\n<input name=\"hyphenator_displaytogglebox\" type=\"checkbox\" value=\"1\" checked=\"checked\" />\n");
+		} else {
+        	echo("\n<input name=\"hyphenator_displaytogglebox\" type=\"checkbox\" value=\"1\" />\n");
+    	}
+        ?>
+        <p><small><?php _e('default', 'hyphenator'); echo ": "; _e('no', 'hyphenator'); ?></small></p>
         </td>
         </tr>
 

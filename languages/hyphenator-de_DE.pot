@@ -1,5 +1,5 @@
 # HYPHENATOR WP-PLUGIN
-# Copyright (C) 2008 Benedict Blümel
+# Copyright (C) 2008 Benedict B.
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -21,7 +21,8 @@ msgstr ""
 #: options.php:51
 #: options.php:62
 #: options.php:74
-#: options.php:89
+#: options.php:90
+#: options.php:105
 msgid "default"
 msgstr ""
 
@@ -29,16 +30,17 @@ msgstr ""
 msgid "none"
 msgstr ""
 
-#: options.php:89
+#: options.php:90
+#: options.php:105
 msgid "no"
 msgstr ""
 
-#: options.php:96
+#: options.php:112
 msgid "Save Changes"
 msgstr ""
 
 #: options.php:17
-#: plugin.php:33
+#: plugin.php:34
 msgid "Hyphenator Options"
 msgstr ""
 
@@ -62,10 +64,14 @@ msgstr ""
 msgid "filtered languages"
 msgstr ""
 
-#: options.php:79
+#: options.php:80
+msgid "display an on-off switch"
+msgstr ""
+
+#: options.php:95
 msgid "use Hyphenator.js from developer trunk"
 msgstr ""
 
-#: options.php:89
+#: options.php:105
 msgid "security risk"
 msgstr ""

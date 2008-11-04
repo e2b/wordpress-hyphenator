@@ -15,7 +15,8 @@ msgstr ""
 #: options.php:51
 #: options.php:62
 #: options.php:74
-#: options.php:89
+#: options.php:90
+#: options.php:105
 msgid "default"
 msgstr "Voreinstellung"
 
@@ -23,16 +24,17 @@ msgstr "Voreinstellung"
 msgid "none"
 msgstr "keine"
 
-#: options.php:89
+#: options.php:90
+#: options.php:105
 msgid "no"
 msgstr "nein"
 
-#: options.php:96
+#: options.php:112
 msgid "Save Changes"
 msgstr "Änderungen speichern"
 
 #: options.php:17
-#: plugin.php:33
+#: plugin.php:34
 msgid "Hyphenator Options"
 msgstr "Hyphenator-Einstellungen"
 
@@ -56,10 +58,14 @@ msgstr "Klassen-Name des zu trennenden Inhalts"
 msgid "filtered languages"
 msgstr "zu filternde Sprachen"
 
-#: options.php:79
+#: options.php:80
+msgid "display an on-off switch"
+msgstr "zeige einen An/Aus-Schalter an"
+
+#: options.php:95
 msgid "use Hyphenator.js from developer trunk"
 msgstr "benutze Hyphenator.js vom Entwickler-Zweig"
 
-#: options.php:89
+#: options.php:105
 msgid "security risk"
 msgstr "Sicherheitsrisiko"
