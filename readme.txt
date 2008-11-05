@@ -3,7 +3,7 @@ Contributors: e2b
 Tags: JavaScript, hyphenation, hyphenate, hypen, softhyphen, Silbentrennung, Worttrennung, HTML, XHTML, pattern, Trennmuster, shy, hyphenator
 Requires at least: 2.6
 Tested up to: 2.6.3
-Stable tag: 0.91
+Stable tag: 0.91.1
 
 Separators are automatically added via JavaScript. Uses Hyphenator.js. Particularly suitable for justification.
 

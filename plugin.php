@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Hyphenator
-Version: 0.91
+Version: 0.91.1
 Plugin URI: http://www.bebl.eu/zeug/hyphenator
 Description: Separators are automatically added via JavaScript. Must be made applied by a CSS class. Uses <a href="http://code.google.com/p/hyphenator/">Hyphenator.js</a> v9.1 (beta).
 Beschreibung: Fügt per JavaScript automatisch Trennzeichen hinzu. Muss per CSS-Klasse angewandt werden. Benutzt <a href="http://code.google.com/p/hyphenator/">Hyphenator.js</a> v9.1 (beta).
