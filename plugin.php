@@ -45,7 +45,7 @@ function hyphenator_header() {
 	$hyphenator_addexceptions = get_option('hyphenator_addexceptions');
 	$hyphenator_classname = get_option('hyphenator_classname');
 	$hyphenator_languages = get_option('hyphenator_languages');
-	$hyphenator_usetrunk = get_option('hyphenator_displaytogglebox');
+	$hyphenator_displaytogglebox = get_option('hyphenator_displaytogglebox');
 	$hyphenator_usetrunk = get_option('hyphenator_usetrunk');
 
 	// set js_path
