@@ -72,7 +72,7 @@ if ('process' == $_POST['stage']) {
         $hyphenator_languages = get_option('hyphenator_languages');
         echo("\n<input name=\"hyphenator_languages\" type=\"text\" size=\"10\" value=\"{$hyphenator_languages}\" />\n");
         ?>
-        <p><small><?php _e('default', 'hyphenator'); echo ": en,de,fr,nl" ?></small></p>
+        <p><small><?php _e('default', 'hyphenator'); echo ": en,de,fr,nl,sv,es" ?></small></p>
         </td>
         </tr>
 
