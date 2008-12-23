@@ -26,7 +26,7 @@
  * @fileOverview
  * A script that does hyphenation in (X)HTML files
  * @author Mathias Nater, <a href = "mailto:mathias@mnn.ch">mathias@mnn.ch</a>
- * @version Beta9
+ * @version Beta11
  */
 
 /**
@@ -58,6 +58,15 @@ var Hyphenator = function () {
 						'es': true,
 						'fr': true,
 						'nl': true,
+						'ml': true,
+						'hi': true,
+						'bn': true,
+						'gu': true,
+						'ta': true,
+						'ka': true,
+						'te': true,
+						'or': true,
+						'pa': true,
 						'sv': true}; //delete languages that you won't use (for better performance)
 
 	/**
@@ -70,7 +79,7 @@ var Hyphenator = function () {
 	 * @private
 	 * @see Hyphenator-autoSetMainLanguage
 	 */
-	var LANGUAGEHINT = 'Deutsch: de\tEnglish: en\tEspa%F1ol: es\tFran%E7ais: fr\tNederlands: nl\tSvenska: sv';
+	var LANGUAGEHINT = 'Deutsch: de\tEnglish: en\tEspa%F1ol: es\tFran%E7ais: fr\tNederlands: nl\tSvenska: sv\tMalayalam: ml\tHindi: hi\tBengali: bn\tGujarati : gu\tTamil: ta\tOriya: or\tPanjabi: pa\tTelugu: te\tKannada: kn';
 
 	/**
 	 * @name Hyphenator-PROMPTERSTRINGS
@@ -87,7 +96,8 @@ var Hyphenator = function () {
                          'es': 'El idioma del sitio no pudo determinarse autom%E1ticamente. Por favor, indique el idioma principal: \n\n'+LANGUAGEHINT,
 						 'fr': 'La langue de ce site n%u2019a pas pu %EAtre d%E9termin%E9e automatiquement. Veuillez indiquer une langue%A0: \n\n' + LANGUAGEHINT,
 						 'nl': 'De taal van deze website kan niet automatisch worden bepaald. Geef de hoofdtaal op: \n\n' + LANGUAGEHINT,
-						 'sv': 'Spr%E5ket p%E5 den h%E4r webbplatsen kunde inte avg%F6ras automatiskt. V%E4nligen ange: \n\n' + LANGUAGEHINT};
+						 'sv': 'Spr%E5ket p%E5 den h%E4r webbplatsen kunde inte avg%F6ras automatiskt. V%E4nligen ange: \n\n' + LANGUAGEHINT,
+						 'ml': 'ഈ വെബ്‌സൈറ്റിന്റെ ഭാഷ കണ്ടുപിടിയ്ക്കാന്‍ കഴിഞ്ഞില്ല. ഭാഷ ഏതാണെന്നു തിരഞ്ഞെടുക്കുക: \n\n' + LANGUAGEHINT};
 	
 	/**
 	 * @name Hyphenator-BASEPATH
@@ -449,7 +459,7 @@ var Hyphenator = function () {
 	 * @private
 	 */		
 	function hideInside() {
-		var elements, body, i, l;
+		var elements, i, l;
 		if (document.getElementsByClassName) {
 			elements = document.getElementsByClassName(hyphenateclass);
 			for (i = 0, l = elements.length; i < l; i++)
@@ -564,11 +574,18 @@ var Hyphenator = function () {
 	 * @methodOf Hyphenator
 	 * @description
 	 * Walks trough the DOM gathering elements and calls {@link Hyphenator.hyphenateElement}.
+	 * This is done through a setTimeout to prevent a Slow-Script-Warning when hyphenating vey big files.
 	 * If the client supports <code>document.getElementsByClassName</code> this is used to find
 	 * the elements with class = "hyphenate". If not we have to run through the whole tree.
 	 * @private
 	 */		
 	function runHyphenation() {
+		function bind(obj, fun, args) {
+			return function() {
+				var f = obj[fun];
+				return f.call(obj, args);
+			};
+		}
 		var body = document.getElementsByTagName('body')[0];
 		var i, elements, l;
 		if (Hyphenator.isBookmarklet()) {
@@ -578,14 +595,14 @@ var Hyphenator = function () {
 				elements = document.getElementsByClassName(hyphenateclass);
 				for (i = 0, l = elements.length; i < l; i++)
 				{
-					Hyphenator.hyphenateElement(elements[i]);
+					window.setTimeout(bind(Hyphenator, "hyphenateElement", elements[i]), 0);
 				}
 			} else {
 				elements = document.getElementsByTagName('*');
 				for (i = 0, l = elements.length; i < l; i++)
 				{
 					if (elements[i].className.indexOf(hyphenateclass) !== -1) {
-						Hyphenator.hyphenateElement(elements[i]);
+						window.setTimeout(bind(Hyphenator, "hyphenateElement", elements[i]), 0);
 					}
 				}
 			}
@@ -658,23 +675,23 @@ var Hyphenator = function () {
 	 * @private
  	 */		
 	function runOnContentLoaded(w, f) {
-	
 		var	d = w.document,
 			D = 'DOMContentLoaded',
 			// user agent, version
 			u = w.navigator.userAgent.toLowerCase(),
-			v = parseFloat(u.match(/.+(?:rv|it|ml|ra|ie)[\/: ]([\d.]+)/)[1]);
+			v = parseFloat(u.match(/.+(?:rv|it|ml|ra|ie)[\/: ]([\d.]+)/)[1]),
+			documentloaded = false;
 				
 		function init(e) {
-			if (!document.loaded) {
-				document.loaded = true;
+			if (!documentloaded) {
+				documentloaded = true;
 				// pass a fake event if needed
 				f((e.type && e.type === D) ? e : {
 					type: D,
 					target: d,
 					eventPhase: 0,
 					currentTarget: d,
-					timeStamp: +new Date,
+					timeStamp: new Date().getTime(),
 					eventType: e.type || e
 				});
 			}
@@ -759,8 +776,13 @@ var Hyphenator = function () {
 	 * Currently there's no message if the patterns aren't found/loaded.
 	 * @private
 	 */
-	function prepare () {
-	// get all languages that are used and preload the patterns
+	function prepare (callback) {
+		if (!enableRemoteLoading) {
+			preparestate = 2;
+			callback();
+			return;
+		}
+		// get all languages that are used and preload the patterns
 		preparestate = 1;
 		var doclanguages = {};
 		doclanguages[mainlanguage] = true;
@@ -776,11 +798,9 @@ var Hyphenator = function () {
 				}
 			}
 		}
-		if (enableRemoteLoading) {
-			for (lang in doclanguages) {
-				if (doclanguages.hasOwnProperty(lang)) {
-					loadPatterns(lang);
-				}
+		for (lang in doclanguages) {
+			if (doclanguages.hasOwnProperty(lang)) {
+				loadPatterns(lang);
 			}
 		}
 		// wait until they are loaded
@@ -797,6 +817,7 @@ var Hyphenator = function () {
 			if (finishedLoading) {
 				window.clearInterval(interval);
 				preparestate = 2;
+				callback();
 			}
 		}, 100);
 	}
@@ -1120,17 +1141,14 @@ var Hyphenator = function () {
 		 * @public
          */
 		hyphenateDocument: function () {
+			function callback() {
+				convertPatternsToObject();
+				runHyphenation();
+			}
 			if (preparestate !== 2) {
 				if (preparestate === 0) {
-					prepare();               // load all language patterns that are used
+					prepare(callback);               // load all language patterns that are used
 				}
-				var interval = window.setInterval(function () {
-					if (preparestate === 2) {
-						window.clearInterval(interval);
-						convertPatternsToObject();
-						runHyphenation();
-					}
-				}, 10);
 			}
 		},
 
@@ -1150,7 +1168,7 @@ var Hyphenator = function () {
 				return;
 			}
 			if (!lang) {
-				lang = getLang(el);
+				lang = getLang(el, true);
 			} else {
 				var elemlang = getLang(el, true);
 				if (elemlang !== null) {
@@ -1254,34 +1272,33 @@ var Hyphenator = function () {
 			var hypos = [];
 			var p, maxwins, win, pat = false, patl, c, digits, z;
 			var numb3rs = {'0': true, '1': true, '2': true, '3': true, '4': true, '5': true, '6': true, '7': true, '8': true, '9': true}; //check for member is faster then isFinite()
-			for (p = 0; p <= (wl - Hyphenator.shortestPattern[lang]); p++) {
+			var n = wl - Hyphenator.shortestPattern[lang];
+			for (p = 0; p <= n; p++) {
 				maxwins = Math.min((wl - p), Hyphenator.longestPattern[lang]);
 				for (win = Hyphenator.shortestPattern[lang]; win <= maxwins; win++) {
 					//a simple check if Hyphenator.patterns[lang][w.substr(p, win)] exists isn't enough: FF gets an error if we're looking for watch e.g. (gets function watch())
 					if (Hyphenator.patterns[lang].hasOwnProperty(w.substr(p, win))) {
 						pat = Hyphenator.patterns[lang][w.substr(p, win)];
 					} else {
-						pat = false;
+						continue;
 					}
-					if (!!pat) {
-						digits = 1;
-						patl = pat.length;
-						for (i = 0; i < patl; i++) {
-							c = pat.charAt(i);
-							if (numb3rs[c]) {
-								if (i === 0) {
-									z = p - 1;
-									if (!hypos[z] || hypos[z] < c) {
-										hypos[z] = c;
-									}
-								} else {
-									z = p + i - digits;
-									if (!hypos[z] || hypos[z] < c) {
-										hypos[z] = c;
-									}
+					digits = 1;
+					patl = pat.length;
+					for (i = 0; i < patl; i++) {
+						c = pat.charAt(i);
+						if (numb3rs[c]) {
+							if (i === 0) {
+								z = p - 1;
+								if (!hypos[z] || hypos[z] < c) {
+									hypos[z] = c;
 								}
-								digits++;								
+							} else {
+								z = p + i - digits;
+								if (!hypos[z] || hypos[z] < c) {
+									hypos[z] = c;
+								}
 							}
+							digits++;								
 						}
 					}
 				}

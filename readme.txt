@@ -2,14 +2,14 @@
 Contributors: e2b
 Tags: JavaScript, hyphenation, hyphenate, hypen, softhyphen, Silbentrennung, Worttrennung, HTML, XHTML, pattern, Trennmuster, shy, hyphenator
 Requires at least: 2.6
-Tested up to: 2.6.3
-Stable tag: 1.0
+Tested up to: 2.7
+Stable tag: 1.1
 
 Separators are automatically added via JavaScript. Uses Hyphenator.js. Particularly suitable for justification.
 
 
 == Description ==
-Separators are automatically added via JavaScript. Must be made applied by a CSS class. Uses Hyphenator.js v10 (beta). Particularly suitable for justification. Backend in English and German.
+Separators are automatically added via JavaScript. Must be made applied by a CSS class. Uses Hyphenator.js v11 (beta). Particularly suitable for justification. Backend in English and German.
 
 = Features =
 *   include Hyphenator.js into your blog for set separators automatically
@@ -27,7 +27,7 @@ See the [Plugin Homepage](http://www.bebl.eu/zeug/hyphenator) for further inform
 = What's Hyphenator.js? =
 > Hyphenator.js brings client-side hyphenation of HTML-Documents on to every browser by inserting soft hyphens using hyphenation patterns and Frank M. Liangs hyphenation algorithm commonly known from LaTeX and Openoffice.
 > 
-> The goal is to provide hyphenation in all browsers that support Javascript and the soft hyphen (&amp;shy;) for at least English, German, French and Dutch.
+> The goal is to provide hyphenation in all browsers that support Javascript and the soft hyphen (&amp;shy;) for at least English, German, French, Dutch, Swedish, Spanish, Malayalam, Tamil, Hindi, Oriya, Kannda, Telugu, Bengali, Gujarati and Panjabi.
 
 [more](http://code.google.com/p/hyphenator/)
 

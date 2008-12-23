@@ -1,10 +1,10 @@
 <?php
 /*
 Plugin Name: Hyphenator
-Version: 1.0
+Version: 1.1
 Plugin URI: http://www.bebl.eu/zeug/hyphenator
-Description: Separators are automatically added via JavaScript. Must be made applied by a CSS class. Uses <a href="http://code.google.com/p/hyphenator/">Hyphenator.js</a> v10 (beta).
-Beschreibung: Fügt per JavaScript automatisch Trennzeichen hinzu. Muss per CSS-Klasse angewandt werden. Benutzt <a href="http://code.google.com/p/hyphenator/">Hyphenator.js</a> v10 (beta).
+Description: Separators are automatically added via JavaScript. Must be made applied by a CSS class. Uses <a href="http://code.google.com/p/hyphenator/">Hyphenator.js</a> v11 (beta).
+Beschreibung: Fügt per JavaScript automatisch Trennzeichen hinzu. Muss per CSS-Klasse angewandt werden. Benutzt <a href="http://code.google.com/p/hyphenator/">Hyphenator.js</a> v11 (beta).
 Author: Benedict B.
 Author URI: http://www.bebl.eu/
 */
