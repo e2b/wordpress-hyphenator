@@ -3,13 +3,13 @@ Contributors: e2b
 Tags: JavaScript, hyphenation, hyphenate, hypen, softhyphen, Silbentrennung, Worttrennung, HTML, XHTML, pattern, Trennmuster, shy, hyphenator
 Requires at least: 2.6
 Tested up to: 2.7
-Stable tag: 1.1
+Stable tag: 1.2
 
 Separators are automatically added via JavaScript. Uses Hyphenator.js. Particularly suitable for justification.
 
 
 == Description ==
-Separators are automatically added via JavaScript. Must be made applied by a CSS class. Uses Hyphenator.js v11 (beta). Particularly suitable for justification. Backend in English and German.
+Separators are automatically added via JavaScript. Must be made applied by a CSS class. Uses Hyphenator.js v12 (beta). Particularly suitable for justification. Backend in English and German.
 
 = Features =
 *   include Hyphenator.js into your blog for set separators automatically
@@ -19,6 +19,7 @@ Separators are automatically added via JavaScript. Must be made applied by a CSS
       * exceptions
       * class name of content to hyphenate
       * filtered languages (selection make it faster)
+      * display an on-off switch
       * use Hyphenator.js from developer trunk
       * English and German language support
 
@@ -27,9 +28,9 @@ See the [Plugin Homepage](http://www.bebl.eu/zeug/hyphenator) for further inform
 = What's Hyphenator.js? =
 > Hyphenator.js brings client-side hyphenation of HTML-Documents on to every browser by inserting soft hyphens using hyphenation patterns and Frank M. Liangs hyphenation algorithm commonly known from LaTeX and Openoffice.
 > 
-> The goal is to provide hyphenation in all browsers that support Javascript and the soft hyphen (&amp;shy;) for at least English, German, French, Dutch, Swedish, Spanish, Malayalam, Tamil, Hindi, Oriya, Kannda, Telugu, Bengali, Gujarati and Panjabi.
+> The goal is to provide hyphenation in all browsers that support Javascript and the soft hyphen (&amp;shy;) for at least English, German, French, Dutch, Swedish, Spanish, Italian, Malayalam, Tamil, Hindi, Oriya, Kannda, Telugu, Bengali, Gujarati and Panjabi.
 
-[more](http://code.google.com/p/hyphenator/)
+Visit the [Hyphenator.js Homepage](http://code.google.com/p/hyphenator/) for more about the project. There you also find the documentation for all options.
 
 
 == Installation ==
@@ -43,7 +44,7 @@ You can see a working example [here](http://www.bebl.eu/uploads/zeug/hyphenator/
 
 
 == License ==
-Copyright (C) 2008 Benedict B. alias e2b
+Copyright (C) 2008-2009 Benedict B. alias e2b
 
 This program (plugin including Hyphenator.js) is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
 

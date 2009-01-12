@@ -1,10 +1,10 @@
 <?php
 /*
 Plugin Name: Hyphenator
-Version: 1.1
+Version: 1.2
 Plugin URI: http://www.bebl.eu/zeug/hyphenator
-Description: Separators are automatically added via JavaScript. Must be made applied by a CSS class. Uses <a href="http://code.google.com/p/hyphenator/">Hyphenator.js</a> v11 (beta).
-Beschreibung: Fügt per JavaScript automatisch Trennzeichen hinzu. Muss per CSS-Klasse angewandt werden. Benutzt <a href="http://code.google.com/p/hyphenator/">Hyphenator.js</a> v11 (beta).
+Description: Separators are automatically added via JavaScript. Must be made applied by a CSS class. Uses <a href="http://code.google.com/p/hyphenator/">Hyphenator.js</a> v12 (beta).
+Beschreibung: Fügt per JavaScript automatisch Trennzeichen hinzu. Muss per CSS-Klasse angewandt werden. Benutzt <a href="http://code.google.com/p/hyphenator/">Hyphenator.js</a> v12 (beta).
 Author: Benedict B.
 Author URI: http://www.bebl.eu/
 */
@@ -20,7 +20,7 @@ add_option('hyphenator_minwordlenght', '6');
 add_option('hyphenator_hypenchar', '&shy;');
 add_option('hyphenator_addexceptions', '');
 add_option('hyphenator_classname', 'hyphenate');
-add_option('hyphenator_languages', 'en,de,fr,nl,sv,es');
+add_option('hyphenator_languages', 'auto');
 add_option('hyphenator_displaytogglebox', '');
 add_option('hyphenator_usetrunk', '');
 
@@ -50,7 +50,7 @@ function hyphenator_header() {
 
 	// set js_path
 	if ($hyphenator_usetrunk == 1) {
-		$js_path = "http://hyphenator.googlecode.com/svn/trunk/";
+		$js_path = "http://hyphenator.googlecode.com/svn/trunk";
 	} else {
 		$js_path = $GLOBALS["hyphenator_path"];
 	}
@@ -59,10 +59,10 @@ function hyphenator_header() {
 	$hyphenatorHead = "\n\t<!-- hyphenator -->";
     $hyphenatorHead .= "\n\t<script src=\"{$js_path}/Hyphenator.js\" type=\"text/javascript\"></script>";
 
-	$hyphenator_languages_array = split(',', $hyphenator_languages);
+	$hyphenator_languages_array = split('[,;]', $hyphenator_languages);
 	foreach ($hyphenator_languages_array as $hyphenator_languages_lang) {
 		$hyphenator_languages_lang = trim(strtolower($hyphenator_languages_lang));
-		if ($hyphenator_languages_lang != '') {
+		if ($hyphenator_languages_lang != '' && $hyphenator_languages_lang != 'auto') {
 			$hyphenatorHead .= "\n\t<script src=\"{$js_path}/patterns/{$hyphenator_languages_lang}.js\" type=\"text/javascript\"></script>";
 			$hyphenator_languages_i = 1;
 		}

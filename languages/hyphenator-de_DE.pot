@@ -21,8 +21,8 @@ msgstr ""
 #: options.php:51
 #: options.php:62
 #: options.php:74
-#: options.php:90
-#: options.php:105
+#: options.php:91
+#: options.php:106
 msgid "default"
 msgstr ""
 
@@ -30,12 +30,12 @@ msgstr ""
 msgid "none"
 msgstr ""
 
-#: options.php:90
-#: options.php:105
+#: options.php:91
+#: options.php:106
 msgid "no"
 msgstr ""
 
-#: options.php:112
+#: options.php:113
 msgid "Save Changes"
 msgstr ""
 
@@ -64,14 +64,18 @@ msgstr ""
 msgid "filtered languages"
 msgstr ""
 
-#: options.php:80
+#: options.php:81
 msgid "display an on-off switch"
 msgstr ""
 
-#: options.php:95
+#: options.php:96
 msgid "use Hyphenator.js from developer trunk"
 msgstr ""
 
-#: options.php:105
+#: options.php:106
 msgid "security risk"
+msgstr ""
+
+#: options.php:75
+msgid "options"
 msgstr ""
