@@ -59,7 +59,7 @@ function hyphenator_header() {
 	$hyphenatorHead = "\n\t<!-- hyphenator -->";
     $hyphenatorHead .= "\n\t<script src=\"{$js_path}/Hyphenator.js\" type=\"text/javascript\"></script>";
 
-	$hyphenator_languages_array = split('[,;]', $hyphenator_languages);
+	$hyphenator_languages_array = split('[,;]', strtolower($hyphenator_languages));
 	foreach ($hyphenator_languages_array as $hyphenator_languages_lang) {
 		$hyphenator_languages_lang = trim(strtolower($hyphenator_languages_lang));
 		if ($hyphenator_languages_lang != '' && $hyphenator_languages_lang != 'auto') {
