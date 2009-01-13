@@ -1,6 +1,6 @@
 === Hyphenator ===
 Contributors: e2b
-Tags: JavaScript, hyphenation, hyphenate, hypen, softhyphen, Silbentrennung, Worttrennung, HTML, XHTML, pattern, Trennmuster, shy, hyphenator
+Tags: hyphenator, hyphenation, hyphenate, hypen, softhyphen, pattern, JavaScript, HTML, XHTML, shy, Silbentrennung, Worttrennung, Trennmuster
 Requires at least: 2.6
 Tested up to: 2.7
 Stable tag: 1.2
