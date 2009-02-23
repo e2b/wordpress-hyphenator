@@ -2,14 +2,14 @@
 Contributors: e2b
 Tags: hyphenator, hyphenation, hyphenate, hypen, softhyphen, pattern, JavaScript, HTML, XHTML, shy, Silbentrennung, Worttrennung, Trennmuster
 Requires at least: 2.6
-Tested up to: 2.7
+Tested up to: 2.7.1
 Stable tag: 1.2
 
 Separators are automatically added via JavaScript. Uses Hyphenator.js. Particularly suitable for justification.
 
 
 == Description ==
-Separators are automatically added via JavaScript. Must be made applied by a CSS class. Uses Hyphenator.js v12 (beta). Particularly suitable for justification. Backend in English and German.
+Separators are automatically added via JavaScript. Must be made applied by a CSS class. Uses Hyphenator.js 1.0.0. Particularly suitable for justification. Backend in English and German.
 
 = Features =
 *   include Hyphenator.js into your blog for set separators automatically
