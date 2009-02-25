@@ -56,9 +56,6 @@ Visit the [project homepage](http://code.google.com/p/hyphenator/ "hyphenator - 
 1. Configure it throught the new menu item 'Hyphenator' in 'Settings'
 
 
-== Frequently Asked Questions ==
-
-
 == Screenshots ==
 1. settings backend (in English)
 
