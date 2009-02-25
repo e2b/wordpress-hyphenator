@@ -41,6 +41,8 @@ Visit the [project homepage](http://code.google.com/p/hyphenator/ "hyphenator - 
 == Screenshots ==
 1. settings backend (in English)
 
+
+== Example ==
 You can see a working example [here](http://hyphenator.googlecode.com/svn/trunk/WorkingExample.html "Example of using Hyphenator.js").
 
 
