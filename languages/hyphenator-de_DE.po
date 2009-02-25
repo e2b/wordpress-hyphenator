@@ -1,75 +1,141 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: hyphenator\n"
-"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-10-12 00:00+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2009-02-24 HO:MI+ZONE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: options.php:29
-#: options.php:40
-#: options.php:51
-#: options.php:62
-#: options.php:74
-#: options.php:91
-#: options.php:106
-msgid "default"
-msgstr "Voreinstellung"
+## long text
 
-#: options.php:51
-msgid "none"
-msgstr "keine"
+#: options.php:96
+msgid "Hyphenator automatically inserts seperators in the content, so that at the end of line the text is wrapped with a dash if applicable. Hyphenator.js, a JavaScript available under the terms of GPL3, is used. It fields the algorithm known from OpenOffice and LaTeX. As this is executed client-sidedly, it adapts itself to the respective browser environment and thus avoids a faulty display. The script is particularly suitable for justification and supports a variety of languages."
+msgstr "Hyphenator fügt automatisch Trennzeichen in den Seiteninhalt ein, so dass am Zeilenende gegebenenfalls mit einem Bindestrich umgebrochen wird. Verwendet wird dazu Hyphenator.js, ein unter der GPL3 lizenziertes JavaScript. Es setzt dabei den von OpenOffice und LaTeX bekannten Algorithmus ein. Da dieses clientseitig ausgeführt wird, passt es sich an die jeweilige Browserumgebung an und vermeidet so eine fehlerhafte Darstellung. Das Script eignet sich besonders für Blocksatz und unterstützt eine Vielzahl von Sprachen."
 
-#: options.php:91
-#: options.php:106
-msgid "no"
-msgstr "nein"
+#: options.php:97
+msgid "Supported browsers: Mozilla Firefox since version 3, Opera since version 7.10, Internet Explorer since version 6.0, Apple Safari since version 2 and any other browser supporting &amp;shy; as well as JavaScript."
+msgstr "Unterstütze Webbrowser: Mozilla Firefox ab Version 3, Opera ab Version 7.10, Internet Explorer ab Version 6.0, Apple Safari ab Version 2 sowie jeder andere Browser der &amp;shy; sowie JavaScript unterstützt."
 
-#: options.php:113
-msgid "Save Changes"
-msgstr "Änderungen speichern"
+#: options.php:100
+msgid "Hyphenator can only be adapted to an HTML class. It is therefore imperatively necessary that the content which should be filtered already has its own class in the source code of the page, otherwise such class should be adde at the page design. Mostly, however, an appropriate class already exists and can be directly used. Unfortunately, it is necessary that you are able to read HTML. Otherwise, the only possibility is to give the often used class names \"post\", \"entry\" and \"content\" a try."
+msgstr "Hyphenator lässt sich nur auf eine HTML-Klasse anwenden. Es ist also zwingend notwendig, dass der zu filternde Inhalt im Quellcode der Seite bereits eine eigene Klasse besitzt, ansonsten muss eine solche im Seitendesign ergänzt werden. Meistens ist aber eine geeignete Klasse bereits vorhanden, welche man direkt verwenden kann. Leider ist es hierzu erforderlich HTML lesen zu können. Ansonsten bleibt nur die Möglichkeit, die oft verwendeten Klassennamen \"post\", \"entry\" und \"content\" auszuprobieren."
 
-#: options.php:17
+#: options.php:101
+msgid "Moreover, it is important for the filtered elements that a language is defined in the HTML code. This can also be specified by a parent element. Only then Hyphenator knows what language filter must be applied. Fortunately, this is very often defined in the design."
+msgstr "Außerdem ist es wichtig, dass für die zu filternde Elemente eine Sprache im HTML-Code definiert ist. Dies kann auch durch ein übergeordnetes Element festgelegt sein. Nur so weiß Hyphenator, welcher Sprachfilter angewendet werden muss. Zum Glück ist auch dies sehr häufig bereits im Design definiert."
+
+#: options.php:102
+msgid "Should there be questions regarding the right class name or the setting of the language attribute, it can be simply asked at the WordPress Forums."
+msgstr "Sollte es fragen bezüglich des richtigen Klassenamens oder dem Setzen des Sprachattributes geben, kann diese einfach im WordPress-Forum gestellt werden."
+
+#: options.php:175
+msgid "If you like the plugin, then recommend Hyphenator or donate a little money. You know? Now and forever."
+msgstr "Wenn dir das Plugin gefällt, dann empfehle Hyphenator doch weiter oder spende ein bisschen Geld. Verstehst du? Jetzt und für immer."
+
+#: options.php:177
+msgid "You can never be sure."
+msgstr "Ihr könnt Euch niemals sicher sein."
+
+
+## short phrases
+
 #: plugin.php:34
+#: options.php:91
 msgid "Hyphenator Options"
 msgstr "Hyphenator-Einstellungen"
 
-#: options.php:23
-msgid "minimal length of words"
-msgstr "minimale Länge von Wörtern"
+#: options.php:94
+msgid "Introduction"
+msgstr "Einführung"
 
-#: options.php:34
-msgid "hyphen character"
-msgstr "Trennzeichen"
+#: options.php:99
+msgid "Configuration"
+msgstr "Konfiguration"
 
-#: options.php:45
-msgid "exceptions"
-msgstr "Ausnahmen"
-
-#: options.php:56
+#: options.php:108
 msgid "class name of content to hyphenate"
 msgstr "Klassen-Name des zu trennenden Inhalts"
 
-#: options.php:68
+#: options.php:112
+msgid "minimal length of words"
+msgstr "minimale Länge von Wörtern"
+
+#: options.php:118
 msgid "filtered languages"
 msgstr "zu filternde Sprachen"
 
-#: options.php:81
+#: options.php:120
+msgid "automatic"
+msgstr "automatisch"
+
+#: options.php:121
+msgid "manual"
+msgstr "manuell"
+
+#: options.php:121
+msgid "faster"
+msgstr "schneller"
+
+#: options.php:147
+msgid "exceptions"
+msgstr "Ausnahmen"
+
+#: options.php:149
+msgid "example"
+msgstr "Beispiel"
+
+#: options.php:149
+msgid "WordPress will never be devided, Benedict only on the given positions"
+msgstr "WordPress wird nie getrennt, Benedict nur an den definierten Stellen"
+
+#: options.php:152
+msgid "Optionaly"
+msgstr "Optional"
+
+#: options.php:153
 msgid "display an on-off switch"
 msgstr "An/Aus-Schalter anzeigen"
 
-#: options.php:96
+#: options.php:158
+msgid "display each hyphen character for testing"
+msgstr "jedes Trennzeichen zum Testen anzeigen"
+
+#: options.php:163
 msgid "use Hyphenator.js from developer trunk"
 msgstr "benutze Hyphenator.js vom Entwickler-Zweig"
 
-#: options.php:106
+#: options.php:169
+msgid "Save Changes"
+msgstr "Änderungen speichern"
+
+#: options.php:174
+msgid "And now?"
+msgstr "Und jetzt?"
+
+
+## multiple short phrases
+
+#: options.php:150
+msgid "none"
+msgstr "keine"
+
+#: options.php:166
 msgid "security risk"
 msgstr "Sicherheitsrisiko"
 
-#: options.php:75
-msgid "options"
-msgstr "Optionen"
+#: options.php:156
+#: options.php:161
+#: options.php:166
+msgid "no"
+msgstr "nein"
+
+#: options.php:110
+#: options.php:114
+#: options.php:120
+#: options.php:150
+#: options.php:156
+#: options.php:161
+#: options.php:166
+msgid "default"
+msgstr "Voreinstellung"
