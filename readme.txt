@@ -13,25 +13,7 @@ Soft hyphen are automatically added in the content for nicer automatic word wrap
 Hyphenator automatically inserts seperators in the content, so that at the end of line the text is wrapped with a dash if applicable. Hyphenator.js, a JavaScript available under the terms of GPL3, is used. It fields the algorithm known from OpenOffice and LaTeX. As this is executed client-sidedly, it adapts itself to the respective browser environment and thus avoids a faulty display. The script is particularly suitable for justification and supports a variety of languages.
 
 = Supported Languages =
-* English
-* Deutsch
-* Français
-* Español
-* Italiano
-* Nederlands
-* suomi
-* svenska
-* polski
-* русский язык
-* বাংলা
-* ქართული
-* മലയാളം
-* ગુજરાતી
-* हिन्दी
-* ଓଡ଼ିଆ
-* ਪੰਜਾਬੀ
-* தமிழ்
-* తెలుగు
+English, Deutsch, Français, Español, Italiano, Nederlands, suomi, svenska, polski, русский язык, বাংলা, ქართული, മലയാളം, ગુજરાતી, हिन्दी, ଓଡ଼ିଆ, ਪੰਜਾਬੀ, தமிழ், తెలుగు
 
 = Features =
 This Plugin includes Hyphenator.js into your blog for inserting separators automatically. The user settings backend available in English and German is easy to understand and everything could be configured there.
