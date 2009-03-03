@@ -1,5 +1,5 @@
 /**************** Preamble ****************/
-//  Hyphenator 1.0.0 - client side hyphenation for webbrowsers
+//  Hyphenator 1.0.1 - client side hyphenation for webbrowsers
 //  Copyright (C) 2009  Mathias Nater, Zürich (mathias at mnn dot ch)
 // 
 //  This program is free software: you can redistribute it and/or modify
@@ -22,8 +22,8 @@
  * @fileOverview
  * A script that does hyphenation in (X)HTML files
  * @author Mathias Nater, <a href = "mailto:mathias@mnn.ch">mathias@mnn.ch</a>
- * @version 1.0.0
-  */
+ * @version 1.0.1
+ */
 
 /**
  * @constructor
@@ -109,16 +109,19 @@ var Hyphenator = function () {
 	 * @see Hyphenator-loadPatterns
 	 */
 	var basePath = function () {
-		var s = document.getElementsByTagName('script'), i = 0, p, t;
-		while (!!(t = s[i++].src)) {
-			p = t.indexOf('Hyphenator.js');
+		var s = document.getElementsByTagName('script'), i = 0, p, src, t;
+		while (!!(t = s[i++])) {
+			if(!t.src) {
+				continue;
+			}
+			src = t.src;
+			p = src.indexOf('Hyphenator.js');
 			if (p !== -1) {
-				return t.substring(0, p);
+				return src.substring(0, p);
 			}
 		}
-		return 'http://hyphenator.googlecode.com/svn/trunk/';
+		return 'http://code.google.com/p/hyphenator/source/browse/tags/Version%201.0.1/';
 	}();
-	
 	/**
 	 * @name Hyphenator-isLocal
 	 * @fieldOf Hyphenator
@@ -858,15 +861,17 @@ var Hyphenator = function () {
 		var interval = window.setInterval(function () {
 			var finishedLoading = false;
 			for (var lang in docLanguages) {
-				if (!Hyphenator.languages[lang]) {
-					finishedLoading = false;
-					break;
-				} else {
-					finishedLoading = true;
-					delete docLanguages[lang];
-					//do conversion while other patterns are loading:
-					convertPatternsToObject(lang);
-					prepareLanguagesObj(lang);		
+				if(docLanguages.hasOwnProperty(lang)) {
+					if (!Hyphenator.languages[lang]) {
+						finishedLoading = false;
+						break;
+					} else {
+						finishedLoading = true;
+						delete docLanguages[lang];
+						//do conversion while other patterns are loading:
+						convertPatternsToObject(lang);
+						prepareLanguagesObj(lang);		
+					}
 				}
 			}
 			if (finishedLoading) {
@@ -1231,6 +1236,7 @@ var Hyphenator = function () {
         	while (!!(n = el.childNodes[i++])) {
         		if (n.nodeType === 3) {
         			n.data = n.data.replace(new RegExp(h, 'g'), '');
+        			n.data = n.data.replace(new RegExp(zeroWidthSpace, 'g'), '');
         		} else if (n.nodeType === 1) {
         			Hyphenator.removeHyphenationFromElement(n);
         		}

@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: Hyphenator
-Version: 1.0.0.1
+Version: 1.0.1
 Plugin URI: http://www.bebl.eu/zeug/hyphenator
-Description: Soft hyphen are automatically added in the content for nicer automatic word wrap. Particularly suitable for justification. Uses <a href="http://code.google.com/p/hyphenator/">Hyphenator.js</a> 1.0.0.
+Description: Soft hyphen are automatically added in the content for nicer automatic word wrap. Particularly suitable for justification. Uses <a href="http://code.google.com/p/hyphenator/">Hyphenator.js</a> 1.0.1.
 Author: Benedict B.
 Author URI: http://www.bebl.eu/
 */
