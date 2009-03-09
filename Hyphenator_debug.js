@@ -1,5 +1,5 @@
 /**************** Preamble ****************/
-//  Hyphenator 1.0.1 - client side hyphenation for webbrowsers
+//  Hyphenator 1.0.2 - client side hyphenation for webbrowsers
 //  Copyright (C) 2009  Mathias Nater, Zürich (mathias at mnn dot ch)
 // 
 //  This program is free software: you can redistribute it and/or modify
@@ -781,6 +781,7 @@ var Hyphenator = function () {
 			}
 			if (xhr) {
 				xhr.open('HEAD', url, false);
+				xhr.setRequestHeader('Cache-Control','no-cache');
 				xhr.send(null);
 				if(xhr.status == 404) {
 					onError(new Error('Could not load\n'+url));
