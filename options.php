@@ -7,6 +7,7 @@ $hyphenator_langindex = array(
 	"es" => "Español",
 	"it" => "Italiano",
 	"nl" => "Nederlands",
+	"da" => "dansk";
 	"fi" => "suomi",
 	"sv" => "svenska",
 	"pl" => "polski",
