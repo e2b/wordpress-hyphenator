@@ -65,6 +65,7 @@ You can see a working example [here](http://hyphenator.googlecode.com/svn/trunk/
 * 1.0.0.1 (25.02.2009) - fatal bug fixed
 * 1.0.1 (03.03.2009) - updated to Hyphenator.js 1.0.1
 * 1.0.2 (09.03.2009) - updated to Hyphenator.js 1.0.2
+* 2.0.0 (15.03.2009) - updated to Hyphenator.js 2.0.0
 
 
 == License ==
