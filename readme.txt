@@ -1,6 +1,6 @@
 === Hyphenator ===
 Contributors: e2b
-Donate link: http://www.bebl.eu/zeug/hyphenator
+Donate link: http://www.bebl.eu/zeug/hyphenator#donate
 Tags: hyphenator, hyphenation, hyphenate, hypen, softhyphen, pattern, JavaScript, HTML, XHTML, shy, Silbentrennung, Worttrennung, Trennmuster
 Requires at least: 2.6
 Tested up to: 2.7.1
