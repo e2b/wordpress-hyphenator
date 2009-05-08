@@ -7,13 +7,14 @@ $hyphenator_langindex = array(
 	"es" => "Español",
 	"it" => "Italiano",
 	"nl" => "Nederlands",
+	"pt" => "Português",
 	"da" => "dansk",
 	"fi" => "suomi",
 	"sv" => "svenska",
 	"pl" => "polski",
 	"ru" => "русский язык",
 	"bn" => "বাংলা",
-	"ka" => "ქართული",
+	"kn" => "ქართული",
 	"ml" => "മലയാളം",
 	"gu" => "ગુજરાતી",
 	"hi" => "हिन्दी",
@@ -24,7 +25,7 @@ $hyphenator_langindex = array(
 );
 
 // list of option names (without "languages")
-$hyphenator_options = array("classname", "minwordlenght", "addexceptions", "displaytogglebox", "hypenchar", "usetrunk");
+$hyphenator_options = array("classname", "minwordlenght", "addexceptions", "displaytogglebox", "hypenchar", "usetrunk", "intermediatestate");
 
 // check for admin options submission and update options
 if ('process' == $_POST['stage']) {
@@ -55,7 +56,7 @@ load_plugin_textdomain(hyphenator, PLUGINDIR.'/'.dirname(plugin_basename(__FILE_
 ?>
 
 <style type="text/css">
-fieldset { border: 0 none transparent; }
+fieldset { border: 0 none transparent; padding-left: 1px; }
 label, legend { font-weight: bold; display: block; margin-bottom: 0.3em; margin-left: 0.7em; clear: both; }
 ul#hyplang label { display: inline; margin: 0; }
 ul#hyplang ul { margin-left: 1.7em; margin-top: 0.2em; padding-bottom: 1em; float: left; }
@@ -123,19 +124,20 @@ jQuery(document).ready(function() {
        <ul>
 <?php
 	    $i = 0;
+		$count = ceil(count($hyphenator_langindex) / 5);
 	    foreach ($hyphenator_langindex as $lang => $language) {
-	    	if ($i % 4 == 0 && $i != 0) {
+	    	if ($i % $count == 0 && $i != 0) {
 	    		echo "       </ul>\n       <ul>\n";
 			}
 			$check = '';
 			if ($hyphenator_['languages'] != 'auto') {
 				foreach ($hyphenator_['languages'] as $setlang) {
 					if ($lang == $setlang) {
-						$check = "checked=\"checked\"";
+						$check = "checked=\"checked\" ";
 					}
 				}
 			}
-			echo "       <li><input id=\"lang_{$lang}\" name=\"hyphenator_lang_{$lang}\" type=\"checkbox\" value=\"1\" {$check} /> <label for=\"lang_{$lang}\">{$language}</label></li>\n";
+			echo "       <li><input id=\"lang_{$lang}\" name=\"hyphenator_lang_{$lang}\" type=\"checkbox\" value=\"1\" {$check}/> <label for=\"lang_{$lang}\">{$language}</label></li>\n";
 	    	$i++;
 		}
     	?>
@@ -165,6 +167,11 @@ jQuery(document).ready(function() {
      <p>
      <input id="opt7" name="hyphenator_usetrunk" type="checkbox" value="1" <?php if ($hyphenator_['usetrunk'] == 1) echo "checked=\"checked\"" ?> />
      <small><?php _e('default', 'hyphenator'); echo ": "; _e('no', 'hyphenator'); echo " ("; _e('security risk', 'hyphenator'); echo ")" ?></small></p>
+
+   <label for="opt8"><?php _e('do not hide content during hyphenation', 'hyphenator') ?></label>
+     <p>
+     <input id="opt8" name="hyphenator_intermediatestate" type="checkbox" value="1" <?php if ($hyphenator_['intermediatestate'] == 1) echo "checked=\"checked\"" ?> />
+     <small><?php _e('default', 'hyphenator'); echo ": "; _e('no', 'hyphenator'); ?></small></p>
 
     <p class="submit">
       <input type="submit" name="Submit" value="<?php _e('Save Changes', 'hyphenator') ?>" />

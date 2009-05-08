@@ -22,6 +22,7 @@ add_option('hyphenator_addexceptions', '');
 add_option('hyphenator_displaytogglebox', '');
 add_option('hyphenator_hypenchar', '');
 add_option('hyphenator_usetrunk', '');
+add_option('hyphenator_intermediatestate', '');
 
 // load gettext files
 load_plugin_textdomain(hyphenator, PLUGINDIR.'/'.dirname(plugin_basename(__FILE__)), dirname(plugin_basename(__FILE__)).'/languages/');
@@ -47,6 +48,7 @@ function hyphenator_header() {
 	$hyphenator_displaytogglebox = get_option('hyphenator_displaytogglebox');
 	$hyphenator_hypenchar = get_option('hyphenator_hypenchar');
 	$hyphenator_usetrunk = get_option('hyphenator_usetrunk');
+	$hyphenator_intermediatestate = get_option('hyphenator_intermediatestate');
 
 	// set js_path
 	if ($hyphenator_usetrunk == 1) {
@@ -66,27 +68,37 @@ function hyphenator_header() {
 	}
 
 	$hyphenatorHead .= "\n\t<script type=\"text/javascript\">";
-	if ($hyphenator_minwordlenght != '') {
-		$hyphenatorHead .= "\n\t\tHyphenator.config({minwordlength: {$hyphenator_minwordlenght}});";
+	
+	if ($hyphenator_minwordlenght != '' && $hyphenator_minwordlenght != 6) {
+		$hyphenatorHeadConfig .= "\n\t\t\tminwordlength: {$hyphenator_minwordlenght},";
 	}
 	if ($hyphenator_hypenchar === '1') {
-		$hyphenatorHead .= "\n\t\tHyphenator.config({hyphenchar: '-'});";
+		$hyphenatorHeadConfig .= "\n\t\t\thyphenchar: '-',";
 	}
+	if ($hyphenator_classname != '') {
+		$hyphenatorHeadConfig .= "\n\t\t\tclassname: '{$hyphenator_classname}',";
+	}
+	if ($hyphenator_displaytogglebox == '1') {
+		$hyphenatorHeadConfig .= "\n\t\t\tdisplaytogglebox: true,";
+	}
+	if ($hyphenator_intermediatestate == '1') {
+		$hyphenatorHeadConfig .= "\n\t\t\tintermediatestate: 'visible',";
+	}
+	if ($hyphenator_languages != "auto" && $hyphenator_languages != '') {
+		$hyphenatorHeadConfig .= "\n\t\t\tremoteloading: false,";
+	}
+	
+	if ($hyphenatorHeadConfig != '') {
+		$hyphenatorHead .= "\n\t\tHyphenator.config({" . substr($hyphenatorHeadConfig, 0, -1) . "\n\t\t})";
+	}
+	
 	if ($hyphenator_addexceptions != '') {
 		$hyphenatorHead .= "\n\t\tHyphenator.addExceptions('', '{$hyphenator_addexceptions}');";
 	}
-	if ($hyphenator_classname != '') {
-		$hyphenatorHead .= "\n\t\tHyphenator.config({classname: '{$hyphenator_classname}'});";
-	}
-	if ($hyphenator_displaytogglebox == '1') {
-		$hyphenatorHead .= "\n\t\tHyphenator.config({displaytogglebox: true});";
-	}
-	if ($hyphenator_languages != "auto" && $hyphenator_languages != '') {
-		$hyphenatorHead .= "\n\t\tHyphenator.config({remoteloading: false});";
-	}
+	
 	$hyphenatorHead .= "\n\t\tHyphenator.run();";
 	$hyphenatorHead .= "\n\t</script>";
-	$hyphenatorHead .= "\n";
+	$hyphenatorHead .= "\n\n";
 	
 	print($hyphenatorHead);
 }
