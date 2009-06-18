@@ -1,15 +1,19 @@
 <?php
 /*
 Plugin Name: Hyphenator
-Version: 2.2.0
+Version: 2.2.0.1
 Plugin URI: http://www.bebl.eu/zeug/hyphenator
-Description: Soft hyphen are automatically added in the content for nicer automatic word wrap. Particularly suitable for justification. Uses <a href="http://code.google.com/p/hyphenator/">Hyphenator.js</a> 2.0.0.
+Description: Soft hyphen are automatically added in the content for nicer automatic word wrap. Particularly suitable for justification. Uses <a href="http://code.google.com/p/hyphenator/">Hyphenator.js</a> 2.2.0.
 Author: Benedict B.
 Author URI: http://www.bebl.eu/
 */
 
+// Pre-2.6 compatibility
+if (!defined('WP_PLUGIN_URL'))
+   define('WP_PLUGIN_URL', get_option( 'siteurl' ) . '/wp-content/plugins');
+
 // detect the plugin path
-$hyphenator_path = get_settings('siteurl'). "/wp-content/plugins/hyphenator";
+$hyphenator_path = WP_PLUGIN_URL . "/hyphenator";
 
 // detect options page
 $hyphenator_options_page = get_option('siteurl') . '/wp-admin/admin.php?page=hyphenator/options.php';
