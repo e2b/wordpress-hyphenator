@@ -2,9 +2,9 @@
 Contributors: e2b
 Donate link: http://www.bebl.eu/zeug/hyphenator#donate
 Tags: hyphenator, hyphenation, hyphenate, hypen, softhyphen, pattern, JavaScript, HTML, XHTML, shy, Silbentrennung, Worttrennung, Trennmuster
-Requires at least: 2.6
-Tested up to: 2.8
-Stable tag: 2.2.0.1
+Requires at least: 2.7
+Tested up to: 2.8.1
+Stable tag: 2.3.0
 
 Soft hyphen are automatically added in the content for nicer automatic word wrap. Particularly suitable for justification. Uses Hyphenator.js.
 
@@ -13,7 +13,7 @@ Soft hyphen are automatically added in the content for nicer automatic word wrap
 Hyphenator automatically inserts seperators in the content, so that at the end of line the text is wrapped with a dash if applicable. Hyphenator.js, a JavaScript available under the terms of GPL3, is used. It fields the algorithm known from OpenOffice and LaTeX. As this is executed client-sidedly, it adapts itself to the respective browser environment and thus avoids a faulty display. The script is particularly suitable for justification and supports a variety of languages.
 
 = Supported Languages =
-English, Deutsch, Français, Español, Italiano, Nederlands, Português, dansk, suomi, svenska, polski, русский язык, বাংলা, ქართული, മലയാളം, ગુજરાતી, हिन्दी, ଓଡ଼ିଆ, ਪੰਜਾਬੀ, தமிழ், తెలుగు
+English, Deutsch, Français, Español, Italiano, Nederlands, Português, Magyar, dansk, suomi, svenska, polski, česky, Українська, русский язык, বাংলা, ქართული, മലയാളം, ગુજરાતી, हिन्दी, ଓଡ଼ିଆ, ਪੰਜਾਬੀ, தமிழ், తెలుగు
 
 = Features =
 This Plugin includes Hyphenator.js into your blog for inserting separators automatically. The user settings backend available in English and German is easy to understand and everything could be configured there.
@@ -69,6 +69,7 @@ You can see a working example [here](http://hyphenator.googlecode.com/svn/trunk/
 * 2.0.0.1 (16.03.2009) - bug fixed
 * 2.2.0   (08.05.2009) - updated to Hyphenator.js 2.2.0
 * 2.2.0.1 (19.06.2009) - bug fixed
+* 2.3.0   (15.07.2009) - updated to Hyphenator.js 2.3.0
 
 
 == License ==

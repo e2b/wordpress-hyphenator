@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: Hyphenator
-Version: 2.2.0.1
+Version: 2.3.0
 Plugin URI: http://www.bebl.eu/zeug/hyphenator
-Description: Soft hyphen are automatically added in the content for nicer automatic word wrap. Particularly suitable for justification. Uses <a href="http://code.google.com/p/hyphenator/">Hyphenator.js</a> 2.2.0.
+Description: Soft hyphen are automatically added in the content for nicer automatic word wrap. Particularly suitable for justification. Uses <a href="http://code.google.com/p/hyphenator/">Hyphenator.js</a> 2.3.0.
 Author: Benedict B.
 Author URI: http://www.bebl.eu/
 */
@@ -105,6 +105,34 @@ function hyphenator_header() {
 	$hyphenatorHead .= "\n\n";
 	
 	print($hyphenatorHead);
+}
+
+// plugin definitions
+define( 'FB_BASENAME', plugin_basename( __FILE__ ) );
+define( 'FB_BASEFOLDER', plugin_basename( dirname( __FILE__ ) ) );
+define( 'FB_FILENAME', str_replace( FB_BASEFOLDER.'/', '', plugin_basename(__FILE__) ) );
+
+
+### Function: hyphenator_header
+global $wp_version;
+
+if (version_compare($wp_version, '2.8alpha', '>'))
+	add_filter('plugin_row_meta', 'filter_plugin_meta', 10, 2 ); // only 2.8 and higher
+add_filter('plugin_action_links', 'filter_plugin_meta', 10, 2 );
+
+function filter_plugin_meta($links, $file) {
+ 
+	/* create link */
+	if ($file == plugin_basename(__FILE__)) {
+		array_unshift(
+			$links,
+			sprintf('<a href="options-general.php?page=%s">%s</a>', 
+			        'hyphenator/options.php', 
+					__('Settings'))
+		);
+	}
+ 
+	return $links;
 }
 
 ?>

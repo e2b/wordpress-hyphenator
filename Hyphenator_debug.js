@@ -1,5 +1,5 @@
 ﻿/*!
- *  Hyphenator 2.2.0 - client side hyphenation for webbrowsers
+ *  Hyphenator 2.3.0 - client side hyphenation for webbrowsers
  *  Copyright (C) 2009  Mathias Nater, Zürich (mathias at mnn dot ch)
  *  Project and Source hosted on http://code.google.com/p/hyphenator/
  * 
@@ -30,7 +30,7 @@
  * @fileOverview
  * A script that does hyphenation in (X)HTML files
  * @author Mathias Nater, <a href = "mailto:mathias@mnn.ch">mathias@mnn.ch</a>
- * @version 2.2.0
+ * @version 2.3.0
   */
 
 /**
@@ -59,7 +59,7 @@ var Hyphenator = (function () {
 	 * @private
 	 * @see Hyphenator-autoSetMainLanguage
 	 */
-	var languageHint = 'da, bn, de, en, es, fi, fr, gu, hi, it, kn, ml, nl, or, pa, pl, pt, ru, sv, ta, te',
+	var languageHint = 'cs, da, bn, de, en, es, fi, fr, gu, hi, hu, it, kn, ml, nl, or, pa, pl, pt, ru, sv, ta, te, uk',
 
 	/**
 	 * @name Hyphenator-supportedLang
@@ -92,18 +92,21 @@ var Hyphenator = (function () {
 	 * @see Hyphenator-autoSetMainLanguage
 	 */	
 	prompterStrings = {
+		'cs': 'Jazyk této internetové stránky nebyl automaticky rozpoznán. Určete prosím její jazyk:',
 		'da': 'Denne websides sprog kunne ikke bestemmes. Angiv venligst sprog:',
 		'de': 'Die Sprache dieser Webseite konnte nicht automatisch bestimmt werden. Bitte Sprache angeben:',
-		'en': 'The language of this website could not be determined automatically. Please indicate main language:',
+		'en': 'The language of this website could not be determined automatically. Please indicate the main language:',
 		'es': 'El idioma del sitio no pudo determinarse autom%E1ticamente. Por favor, indique el idioma principal:',
 		'fi': 'Sivun kielt%E4 ei tunnistettu automaattisesti. M%E4%E4rit%E4 sivun p%E4%E4kieli:',
 		'fr': 'La langue de ce site n%u2019a pas pu %EAtre d%E9termin%E9e automatiquement. Veuillez indiquer une langue, s.v.p.%A0:',
+		'hu': 'A weboldal nyelvét nem sikerült automatikusan megállapítani. Kérem adja meg a nyelvet:',
 		'it': 'Lingua del sito sconosciuta. Indicare una lingua, per favore:',
 		'ml': 'ഈ വെ%u0D2C%u0D4D%u200Cസൈറ്റിന്റെ ഭാഷ കണ്ടുപിടിയ്ക്കാ%u0D28%u0D4D%u200D കഴിഞ്ഞില്ല. ഭാഷ ഏതാണെന്നു തിരഞ്ഞെടുക്കുക:',
 		'nl': 'De taal van deze website kan niet automatisch worden bepaald. Geef de hoofdtaal op:',
 		'pt': 'A língua deste site não pôde ser determinada automaticamente. Por favor indique a língua principal:',
 		'ru': 'Язык этого сайта не может быть определен автоматически. Пожалуйста укажите язык:',
-		'sv': 'Spr%E5ket p%E5 den h%E4r webbplatsen kunde inte avg%F6ras automatiskt. V%E4nligen ange:'
+		'sv': 'Spr%E5ket p%E5 den h%E4r webbplatsen kunde inte avg%F6ras automatiskt. V%E4nligen ange:',
+		'uk': 'Мова цього веб-сайту не може бути визначена автоматично. Будь ласка, вкажіть головну мову:'
 	},
 	
 	/**
@@ -130,7 +133,7 @@ var Hyphenator = (function () {
 				return src.substring(0, p);
 			}
 		}
-		return 'http://hyphenator.googlecode.com/svn/branches/Version2/';
+		return 'http://hyphenator.googlecode.com/svn/trunk/';
 	}()),
 
 	/**
@@ -339,7 +342,7 @@ var Hyphenator = (function () {
 	 * @type string
 	 * @private
 	 */	
-	url = '(\\w*:\/\/)((\\w*:)?(\\w*)@)?([\\w\\.]*)?(:\\d*)?(\/[\\w#!:\\.?\\+=&%@!\\-]*)*',
+	url = '(\\w*:\/\/)?((\\w*:)?(\\w*)@)?((([\\d]{1,3}\\.){3}([\\d]{1,3}))|(([\\w]*\\.)+([\\w]{2,4})))(:\\d*)?(\/[\\w#!:\\.?\\+=&%@!\\-]*)*',
 
 	/**
 	 * @name Hyphenator-mail
@@ -1313,7 +1316,7 @@ var Hyphenator = (function () {
 		 * minor release: new languages, improvements
 		 * @public
          */		
-		version: '2.2.0',
+		version: '2.3.0',
 		
 		/**
 		 * @name Hyphenator.languages
