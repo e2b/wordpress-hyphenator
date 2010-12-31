@@ -26,7 +26,7 @@ $hyphenator_langindex = array(
 	"ru" => "русский язык",
 	"el-polyton" => "Ελληνικά (polyton)",
 	"el-monoton" => "Ελληνικά (monoton)",
-	"grc" => "Ἑλληνικά (historic)",
+	"grc" => "Ἑλληνικά (ancient)",
 	"be" => "Беларуская мова",
 	"bn" => "বাংলা",
 	"kn" => "ქართული",
@@ -140,7 +140,7 @@ jQuery(document).ready(function() {
        <ul>
 <?php
 	    $i = 0;
-		$count = ceil(count($hyphenator_langindex) / 5);
+		$count = ceil(count($hyphenator_langindex) / 3);
 	    foreach ($hyphenator_langindex as $lang => $language) {
 	    	if ($i % $count == 0 && $i != 0) {
 	    		echo "       </ul>\n       <ul>\n";
