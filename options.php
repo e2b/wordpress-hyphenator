@@ -1,7 +1,9 @@
 <?php
 // list of available languages
 $hyphenator_langindex = array(
-	"en" => "English",
+	"en" => "English (en)",
+	"en-us" => "English (en-us)",
+	"en-gb" => "English (en-gb)",
 	"de" => "Deutsch",
 	"fr" => "Français",
 	"es" => "Español",
@@ -11,11 +13,21 @@ $hyphenator_langindex = array(
 	"hu" => "Magyar",
 	"da" => "dansk",
 	"fi" => "suomi",
+	"no-nb" => "norsk/bokmål",
 	"sv" => "svenska",
 	"pl" => "polski",
 	"cs" => "česky",
+	"tr" => "Türkçe",
+	"sl" => "slovenščina",
+	"lt" => "lietuvių kalba",
+	"lv" => "latviešu valoda",
+	"la" => "latine",
 	"uk" => "Українська",
 	"ru" => "русский язык",
+	"el-polyton" => "Ελληνικά (polyton)",
+	"el-monoton" => "Ελληνικά (monoton)",
+	"grc" => "Ἑλληνικά (historic)",
+	"be" => "Беларуская мова",
 	"bn" => "বাংলা",
 	"kn" => "ქართული",
 	"ml" => "മലയാളം",
@@ -24,7 +36,8 @@ $hyphenator_langindex = array(
 	"or" => "ଓଡ଼ିଆ",
 	"pa" => "ਪੰਜਾਬੀ",
 	"ta" => "தமிழ்",
-	"te" => "తెలుగు"
+	"te" => "తెలుగు",
+	"hy" => "Հայերեն լեզու"
 );
 
 // list of option names (without "languages")
@@ -123,7 +136,7 @@ jQuery(document).ready(function() {
     <legend><?php _e('filtered languages', 'hyphenator') ?></legend>
      <ul id="hyplang">
       <li><input id="lang1" type="radio" name="hyphenator_lang" value="auto" <?php if ($hyphenator_['languages'] == 'auto') echo "checked=\"checked\"" ?> /> <label for="lang1"><?php _e('automatic', 'hyphenator') ?></label> <small>(<?php _e('default', 'hyphenator') ?>)</small></li>
-      <li><input id="lang2" type="radio" name="hyphenator_lang" value="manual" <?php if ($hyphenator_['languages'] != 'auto') echo "checked=\"checked\"" ?> /> <label for="lang2"><?php _e('manual', 'hyphenator') ?></label> <small>(<?php _e('faster', 'hyphenator') ?>)</small>
+      <li><div><input id="lang2" type="radio" name="hyphenator_lang" value="manual" <?php if ($hyphenator_['languages'] != 'auto') echo "checked=\"checked\"" ?> /> <label for="lang2"><?php _e('manual', 'hyphenator') ?></label> <small>(<?php _e('faster', 'hyphenator') ?>)</small></div>
        <ul>
 <?php
 	    $i = 0;
