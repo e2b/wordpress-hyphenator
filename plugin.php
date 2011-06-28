@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: Hyphenator
-Version: 3.2.0
+Version: 3.3.0
 Plugin URI: http://www.bebl.eu/zeug/hyphenator
-Description: Soft hyphen are automatically added in the content for nicer automatic word wrap. Particularly suitable for justification. Uses <a href="http://code.google.com/p/hyphenator/">Hyphenator.js</a> 3.2.0.
+Description: Soft hyphen are automatically added in the content for nicer automatic word wrap. Particularly suitable for justification. Uses <a href="http://code.google.com/p/hyphenator/">Hyphenator.js</a> 3.3.0.
 Author: Benedict B.
 Author URI: http://www.bebl.eu/
 */
@@ -19,6 +19,7 @@ $hyphenator_path = WP_PLUGIN_URL . "/hyphenator";
 $hyphenator_options_page = get_option('siteurl') . '/wp-admin/admin.php?page=hyphenator/options.php';
 
 // add default options
+add_option('hyphenator_version', '');
 add_option('hyphenator_classname', 'hyphenate');
 add_option('hyphenator_minwordlenght', '6');
 add_option('hyphenator_languages', 'auto');
@@ -62,7 +63,7 @@ function hyphenator_header() {
 	}
 
 	// prepare header and print
-	$hyphenatorHead = "\n\t<!-- hyphenator -->";
+	$hyphenatorHead = "\n\t<!-- Hyphenator for WordPress -->";
     $hyphenatorHead .= "\n\t<script src=\"{$js_path}/Hyphenator.js\" type=\"text/javascript\"></script>";
 
 	if ($hyphenator_languages != auto && $hyphenator_languages != '') {

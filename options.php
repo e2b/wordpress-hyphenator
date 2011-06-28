@@ -1,8 +1,7 @@
 <?php
 // list of available languages
 $hyphenator_langindex = array(
-	"en" => "English (en)",
-	"en-us" => "English (en-us)",
+	"en-us" => "English (en-us/en)",
 	"en-gb" => "English (en-gb)",
 	"de" => "Deutsch",
 	"fr" => "Français",
@@ -10,6 +9,7 @@ $hyphenator_langindex = array(
 	"it" => "Italiano",
 	"nl" => "Nederlands",
 	"pt" => "Português",
+	"ca" => "Català",
 	"hu" => "Magyar",
 	"da" => "dansk",
 	"fi" => "suomi",
@@ -42,6 +42,36 @@ $hyphenator_langindex = array(
 
 // list of option names (without "languages")
 $hyphenator_options = array("classname", "minwordlenght", "addexceptions", "displaytogglebox", "hypenchar", "usetrunk", "intermediatestate");
+
+// get current plugin version
+function hyphenator_version() {
+	if ( ! function_exists( 'get_plugins' ) )
+		require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+	$plugin_folder = get_plugins('/hyphenator');
+	return $plugin_folder['plugin.php']['Version'];
+}
+
+// update options on version updates
+function hyphenator_update() {
+	switch (hyphenator_version()) {
+		case '3.3.0':   // option 'en' -> 'en-us'
+			$array = get_option('hyphenator_languages');
+			if ( ($key = array_search("en", $array)) !== false) {
+				unset($array[$key]);
+				if (!in_array('en-us', $array)) {
+					$array[$key] = 'en-us';
+				}
+				update_option('hyphenator_languages', $array);
+			}
+			break;
+	}
+}
+
+// check for fixes because of version updates
+if ( get_option('hyphenator_version') != hyphenator_version() ) {
+	hyphenator_update();
+	update_option('hyphenator_version', hyphenator_version());
+}
 
 // check for admin options submission and update options
 if ('process' == $_POST['stage']) {
@@ -150,10 +180,11 @@ jQuery(document).ready(function() {
 				foreach ($hyphenator_['languages'] as $setlang) {
 					if ($lang == $setlang) {
 						$check = "checked=\"checked\" ";
+						break;
 					}
 				}
 			}
-			echo "       <li><input id=\"lang_{$lang}\" name=\"hyphenator_lang_{$lang}\" type=\"checkbox\" value=\"1\" {$check}/> <label for=\"lang_{$lang}\">{$language}</label></li>\n";
+			echo "       <li><input id=\"lang_{$lang}\" name=\"hyphenator_lang_{$lang}\" type=\"checkbox\" value=\"1\" {$check}/> <label for=\"lang_{$lang}\" title=\"patterns/{$lang}.js\">{$language}</label></li>\n";
 	    	$i++;
 		}
     	?>

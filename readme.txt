@@ -3,8 +3,8 @@ Contributors: e2b
 Donate link: http://www.bebl.eu/zeug/hyphenator#donate
 Tags: hyphenator, hyphenation, hyphenate, hypen, softhyphen, pattern, JavaScript, HTML, XHTML, shy, Silbentrennung, Worttrennung, Trennmuster
 Requires at least: 2.7
-Tested up to: 3.0.4
-Stable tag: 3.2.0
+Tested up to: 3.1.3
+Stable tag: 3.3.0
 
 Soft hyphen are automatically added in the content for nicer automatic word wrap. Particularly suitable for justification. Uses Hyphenator.js.
 
@@ -13,7 +13,7 @@ Soft hyphen are automatically added in the content for nicer automatic word wrap
 Hyphenator automatically inserts seperators in the content, so that at the end of line the text is wrapped with a dash if applicable. Hyphenator.js, a JavaScript available under the terms of GPL3, is used. It fields the algorithm known from OpenOffice and LaTeX. As this is executed client-sidedly, it adapts itself to the respective browser environment and thus avoids a faulty display. The script is particularly suitable for justification and supports a variety of languages.
 
 = Supported Languages =
-English, Deutsch, Français, Español, Italiano, Nederlands, Português, Magyar, dansk, suomi, norsk/bokmål, svenska, polski, česky, Türkçe, slovenščina, lietuvių kalba, latviešu valoda, latine, Українська, русский язык, Ελληνικά, Беларуская мова, বাংলা, ქართული, മലയാളം, ગુજરાતી, हिन्दी, ଓଡ଼ିଆ, ਪੰਜਾਬੀ, தமிழ், తెలుగు, Հայերեն լեզու
+English, Deutsch, Français, Español, Italiano, Nederlands, Português, Català, Magyar, dansk, suomi, norsk/bokmål, svenska, polski, česky, Türkçe, slovenščina, lietuvių kalba, latviešu valoda, latine, Українська, русский язык, Ελληνικά, Беларуская мова, বাংলা, ქართული, മലയാളം, ગુજરાતી, हिन्दी, ଓଡ଼ିଆ, ਪੰਜਾਬੀ, தமிழ், తెలుగు, Հայերեն լեզու
 
 = Features =
 This Plugin includes Hyphenator.js into your blog for inserting separators automatically. The user settings backend available in English and German is easy to understand and everything could be configured there.
@@ -72,10 +72,11 @@ You can see a working example [here](http://hyphenator.googlecode.com/svn/trunk/
 * 2.3.0   (15.07.2009) - updated to Hyphenator.js 2.3.0
 * 2.3.1   (10.08.2009) - updated to Hyphenator.js 2.3.1
 * 3.2.0   (31.12.2010) - updated to Hyphenator.js 3.2.0
+* 3.3.0   (29.06.2011) - updated to Hyphenator.js 3.3.0
 
 
 == License ==
-Copyright (C) 2008-2010 Benedict B. alias e2b
+Copyright (C) 2008-2011 Benedict B. alias e2b
 
 This program (plugin including Hyphenator.js) is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
 

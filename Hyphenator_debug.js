@@ -1,5 +1,5 @@
-﻿/** @license Hyphenator 3.2.0 - client side hyphenation for webbrowsers
- *  Copyright (C) 2010  Mathias Nater, Zürich (mathias at mnn dot ch)
+﻿/** @license Hyphenator 3.3.0 - client side hyphenation for webbrowsers
+ *  Copyright (C) 2011  Mathias Nater, Zürich (mathias at mnn dot ch)
  *  Project and Source hosted on http://code.google.com/p/hyphenator/
  * 
  *  This JavaScript code is free software: you can redistribute
@@ -31,7 +31,7 @@
  * @description Provides all functionality to do hyphenation, except the patterns that are loaded
  * externally.
  * @author Mathias Nater, <a href = "mailto:mathias@mnn.ch">mathias@mnn.ch</a>
- * @version X.Y.Z
+ * @version 3.3.0
  * @namespace Holds all methods and properties
  * @example
  * &lt;script src = "Hyphenator.js" type = "text/javascript"&gt;&lt;/script&gt;
@@ -56,6 +56,7 @@ var Hyphenator = (function (window) {
 	 */
 	supportedLang = {
 		'be': 'be.js',
+		'ca': 'ca.js',
 		'cs': 'cs.js',
 		'da': 'da.js',
 		'bn': 'bn.js',
@@ -1112,7 +1113,7 @@ var Hyphenator = (function (window) {
 				lo.exceptions = {};
 			}
 			convertPatterns(lang);
-			wrd = '[\\w' + lo.specialChars + '@' + String.fromCharCode(173) + '-]{' + min + ',}';
+			wrd = '[\\w' + lo.specialChars + '@' + String.fromCharCode(173) + String.fromCharCode(8204) + '-]{' + min + ',}';
 			lo.genRegExp = new RegExp('(' + url + ')|(' + mail + ')|(' + wrd + ')', 'gi');
 			lo.prepared = true;
 		}
@@ -1176,7 +1177,7 @@ var Hyphenator = (function (window) {
 						delete exceptions[lang];
 					}
 					//Replace genRegExp since it may have been changed:
-					tmp1 = '[\\w' + Hyphenator.languages[lang].specialChars + '@' + String.fromCharCode(173) + '-]{' + min + ',}';
+					tmp1 = '[\\w' + Hyphenator.languages[lang].specialChars + '@' + String.fromCharCode(173) + String.fromCharCode(8204) + '-]{' + min + ',}';
 					Hyphenator.languages[lang].genRegExp = new RegExp('(' + url + ')|(' + mail + ')|(' + tmp1 + ')', 'gi');
 					
 					delete docLanguages[lang];
@@ -1218,7 +1219,6 @@ var Hyphenator = (function (window) {
 	 * @name Hyphenator-switchToggleBox
 	 * @description
 	 * Creates or hides the toggleBox: a small button to turn off/on hyphenation on a page.
-	 * @param {boolean} s true when hyphenation is on, false when it's off
 	 * @see Hyphenator.config
 	 * @private
 	 */		
@@ -1270,7 +1270,7 @@ var Hyphenator = (function (window) {
 	 */	
 	hyphenateWord = function (lang, word) {
 		var lo = Hyphenator.languages[lang],
-			parts, i, l, w, wl, s, hypos, p, maxwins, win, pat = false, patk, c, t, n, numb3rs, inserted, hyphenatedword, val;
+			parts, i, l, w, wl, s, hypos, p, maxwins, win, pat = false, patk, c, t, n, numb3rs, inserted, hyphenatedword, val, subst, ZWNJpos = [];
 		if (word === '') {
 			return '';
 		}
@@ -1292,15 +1292,31 @@ var Hyphenator = (function (window) {
 			}
 			return parts.join('-');
 		}
-		//finally the core hyphenation algorithm
 		w = '_' + word + '_';
+		if (word.indexOf(String.fromCharCode(8204)) !== -1) {
+			parts = w.split(String.fromCharCode(8204));
+			w = parts.join('');
+			for (i = 0, l = parts.length; i < l; i++) {
+				parts[i] = parts[i].length.toString();
+			}
+			parts.pop();
+			ZWNJpos = parts;
+		}
 		wl = w.length;
 		s = w.split('');
+		if (!!lo.charSubstitution) {
+			for (subst in lo.charSubstitution) {
+				if (lo.charSubstitution.hasOwnProperty(subst)) {
+					w = w.replace(new RegExp(subst, 'g'), lo.charSubstitution[subst]);
+				}
+			}
+		}
 		if (word.indexOf("'") !== -1) {
 			w = w.toLowerCase().replace("'", "’"); //replace APOSTROPHE with RIGHT SINGLE QUOTATION MARK (since the latter is used in the patterns)
 		} else {
 			w = w.toLowerCase();
 		}
+		//finally the core hyphenation algorithm
 		hypos = [];
 		numb3rs = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9}; //check for member is faster then isFinite()
 		n = wl - lo.shortestPattern;
@@ -1337,7 +1353,12 @@ var Hyphenator = (function (window) {
 			}
 		}
 		inserted = 0;
-		for (i = lo.leftmin; i <= (word.length - lo.rightmin); i++) {
+		for (i = lo.leftmin; i <= (wl - 2 - lo.rightmin); i++) {
+			if (ZWNJpos.length > 0 && ZWNJpos[0] === i) {
+				ZWNJpos.shift();
+				s.splice(i + inserted - 1, 0, String.fromCharCode(8204));
+				inserted++;
+			}			
 			if (!!(hypos[i] & 1)) {
 				s.splice(i + inserted + 1, 0, hyphen);
 				inserted++;
@@ -1687,7 +1708,7 @@ var Hyphenator = (function (window) {
 		 * minor release: new languages, improvements
 		 * @public
          */		
-		version: 'X.Y.Z',
+		version: '3.3.0',
 
 		/**
 		 * @name Hyphenator.doHyphenation
