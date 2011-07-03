@@ -3,8 +3,8 @@ Contributors: e2b
 Donate link: http://www.bebl.eu/zeug/hyphenator#donate
 Tags: hyphenator, hyphenation, hyphenate, hypen, softhyphen, pattern, JavaScript, HTML, XHTML, shy, Silbentrennung, Worttrennung, Trennmuster
 Requires at least: 2.7
-Tested up to: 3.1.3
-Stable tag: 3.3.0
+Tested up to: 3.2
+Stable tag: 3.3.0.1
 
 Soft hyphen are automatically added in the content for nicer automatic word wrap. Particularly suitable for justification. Uses Hyphenator.js.
 
@@ -73,6 +73,7 @@ You can see a working example [here](http://hyphenator.googlecode.com/svn/trunk/
 * 2.3.1   (10.08.2009) - updated to Hyphenator.js 2.3.1
 * 3.2.0   (31.12.2010) - updated to Hyphenator.js 3.2.0
 * 3.3.0   (29.06.2011) - updated to Hyphenator.js 3.3.0
+* 3.3.0.1 (03.07.2011) - fatal error fixed
 
 
 == License ==

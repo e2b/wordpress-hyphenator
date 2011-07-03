@@ -55,6 +55,7 @@ function hyphenator_version() {
 function hyphenator_update() {
 	switch (hyphenator_version()) {
 		case '3.3.0':   // option 'en' -> 'en-us'
+		case '3.3.0.1':
 			$array = get_option('hyphenator_languages');
 			if ( is_array($array) && (($key = array_search('en', $array)) !== false) ) {
 				unset($array[$key]);
