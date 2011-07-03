@@ -37,7 +37,7 @@ load_plugin_textdomain('hyphenator', PLUGINDIR.'/'.dirname(plugin_basename(__FIL
 add_action('admin_menu', 'hyphenator_admin');
 
 function hyphenator_admin() {
-	add_options_page(__('Hyphenator Options', 'hyphenator'), 'Hyphenator', 10, 'hyphenator/options.php'); // under "options"
+	add_options_page(__('Hyphenator Options', 'hyphenator'), 'Hyphenator', 'manage_options', 'hyphenator/options.php'); // under "options"
 }
 
 
