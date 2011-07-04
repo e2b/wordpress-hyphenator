@@ -75,7 +75,7 @@ if ( get_option('hyphenator_version') != hyphenator_version() ) {
 }
 
 // check for admin options submission and update options
-if ('process' == $_POST['stage']) {
+if (isset($_POST['stage']) && 'process' == $_POST['stage']) {
 	foreach ($hyphenator_options as $opt) {
 		update_option('hyphenator_' . $opt, trim($_POST['hyphenator_' . $opt]));
 	}
@@ -99,7 +99,7 @@ foreach ($hyphenator_options as $opt) {
 $hyphenator_['languages'] = get_option('hyphenator_languages');
 
 // load gettext files
-load_plugin_textdomain(hyphenator, PLUGINDIR.'/'.dirname(plugin_basename(__FILE__)), dirname(plugin_basename(__FILE__)).'/languages/');
+load_plugin_textdomain('hyphenator', PLUGINDIR.'/'.dirname(plugin_basename(__FILE__)), dirname(plugin_basename(__FILE__)).'/languages/');
 ?>
 
 <style type="text/css">
