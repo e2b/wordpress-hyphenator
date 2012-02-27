@@ -3,7 +3,7 @@
 Plugin Name: Hyphenator
 Version: 4.0.0
 Plugin URI: http://wordpress.org/extend/plugins/hyphenator/
-Description: Soft hyphen are automatically added in the content for a nicer automatic word wrap. Particularly suitable for justification. Uses <a href="http://code.google.com/p/hyphenator/">Hyphenator.js</a> 4.0.0.
+Description: Soft hyphens are automatically added in the content for a nicer automatic word wrap. Particularly suitable for justification. Uses <a href="http://code.google.com/p/hyphenator/">Hyphenator.js</a> 4.0.0.
 Author: Benedict B.
 */
 

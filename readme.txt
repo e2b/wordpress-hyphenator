@@ -1,12 +1,12 @@
 === Hyphenator ===
 Contributors: e2b
 Donate link:
-Tags: hyphenator, hyphenation, hyphenate, hypen, softhyphen, pattern, JavaScript, HTML, XHTML, shy, Silbentrennung, Worttrennung, Trennmuster
+Tags: hyphenator, hyphenation, hyphenate, hyphen, softhyphen, pattern, JavaScript, HTML, XHTML, shy, Silbentrennung, Worttrennung, Trennmuster
 Requires at least: 2.7
 Tested up to: 3.3.1
 Stable tag: 4.0.0
 
-Soft hyphen are automatically added in the content for a nicer automatic word wrap. Particularly suitable for justification. Uses Hyphenator.js.
+Soft hyphens are automatically added in the content for a nicer automatic word wrap. Particularly suitable for justification. Uses Hyphenator.js.
 
 == Description ==
 Hyphenator automatically inserts seperators in the content, so that at the end of line the text is wrapped with a dash if applicable. Hyphenator.js, a JavaScript available under the terms of LGPL v3, is used. It fields the algorithm known from OpenOffice and LaTeX. As this is executed client-sidedly, it adapts itself to the respective browser environment and thus avoids a faulty display. The script is particularly suitable for justification and supports a variety of languages.
@@ -89,9 +89,10 @@ Updated to the latest version of Hyphenator.js (4.0.0) and small improvements. P
 You can see a working example of Hyphenator.js [here](http://hyphenator.googlecode.com/svn/trunk/WorkingExample.html "Example of using Hyphenator.js").
 
 == License ==
-Copyright (C) 2008-2012 Benedict B. alias e2b
+* Plugin licensed under GLP3: Copyright (C) 2008-2012 Benedict B. alias e2b
+* Hyphenator.js licensed under LGPLv3: Copyright (C) 2011 Mathias Nater, Zürich
 
-This program (plugin including Hyphenator.js) is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
 
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the [GNU General Public License](http://www.gnu.org/licenses/gpl.html "The GNU General Public License - GNU Project - Free Software Foundation (FSF)") for more details.
 
