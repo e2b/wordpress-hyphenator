@@ -1,11 +1,10 @@
 <?php
 /*
 Plugin Name: Hyphenator
-Version: 3.3.0.1
-Plugin URI: http://www.bebl.eu/zeug/hyphenator
-Description: Soft hyphen are automatically added in the content for nicer automatic word wrap. Particularly suitable for justification. Uses <a href="http://code.google.com/p/hyphenator/">Hyphenator.js</a> 3.3.0.
+Version: 4.0.0
+Plugin URI: http://wordpress.org/extend/plugins/hyphenator/
+Description: Soft hyphen are automatically added in the content for nicer automatic word wrap. Particularly suitable for justification. Uses <a href="http://code.google.com/p/hyphenator/">Hyphenator.js</a> 4.0.0.
 Author: Benedict B.
-Author URI: http://www.bebl.eu/
 */
 
 // Pre-2.6 compatibility
@@ -23,6 +22,7 @@ add_option('hyphenator_version', '');
 add_option('hyphenator_classname', 'hyphenate');
 add_option('hyphenator_minwordlenght', '6');
 add_option('hyphenator_languages', 'auto');
+add_option('hyphenator_defaultlanguage', '');
 add_option('hyphenator_addexceptions', '');
 add_option('hyphenator_displaytogglebox', '');
 add_option('hyphenator_hypenchar', '');
@@ -49,6 +49,7 @@ function hyphenator_header() {
 	$hyphenator_classname = get_option('hyphenator_classname');
 	$hyphenator_minwordlenght = get_option('hyphenator_minwordlenght');
 	$hyphenator_languages = get_option('hyphenator_languages');
+	$hyphenator_defaultlanguage = get_option('hyphenator_defaultlanguage');
 	$hyphenator_addexceptions = get_option('hyphenator_addexceptions');
 	$hyphenator_displaytogglebox = get_option('hyphenator_displaytogglebox');
 	$hyphenator_hypenchar = get_option('hyphenator_hypenchar');
@@ -94,12 +95,12 @@ function hyphenator_header() {
 	if ($hyphenator_languages != "auto" && $hyphenator_languages != '') {
 		$hyphenatorHeadConfig .= "\n\t\t\tremoteloading: false,";
 	}
-	if ($hyphenator_languages != "auto" && count($hyphenator_languages) == 1) {
-		$hyphenatorHeadConfig .= "\n\t\t\tdefaultlanguage: '{$hyphenator_languages[0]}',";
+	if ($hyphenator_defaultlanguage != '') {
+		$hyphenatorHeadConfig .= "\n\t\t\tdefaultlanguage: '{$hyphenator_defaultlanguage}',";
 	}
 	
 	if ($hyphenatorHeadConfig != '') {
-		$hyphenatorHead .= "\n\t\tHyphenator.config({" . substr($hyphenatorHeadConfig, 0, -1) . "\n\t\t})";
+		$hyphenatorHead .= "\n\t\tHyphenator.config({" . substr($hyphenatorHeadConfig, 0, -1) . "\n\t\t});";
 	}
 	
 	if ($hyphenator_addexceptions != '') {

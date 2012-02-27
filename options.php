@@ -1,47 +1,48 @@
 <?php
 // list of available languages
 $hyphenator_langindex = array(
-	"en-us" => "English (en-us/en)",
-	"en-gb" => "English (en-gb)",
-	"de" => "Deutsch",
-	"fr" => "Français",
-	"es" => "Español",
-	"it" => "Italiano",
-	"nl" => "Nederlands",
-	"pt" => "Português",
-	"ca" => "Català",
-	"hu" => "Magyar",
-	"da" => "dansk",
-	"fi" => "suomi",
-	"no-nb" => "norsk/bokmål",
-	"sv" => "svenska",
-	"pl" => "polski",
-	"cs" => "česky",
-	"tr" => "Türkçe",
-	"sl" => "slovenščina",
-	"lt" => "lietuvių kalba",
-	"lv" => "latviešu valoda",
-	"la" => "latine",
-	"uk" => "Українська",
-	"ru" => "русский язык",
-	"el-polyton" => "Ελληνικά (polyton)",
-	"el-monoton" => "Ελληνικά (monoton)",
-	"grc" => "Ἑλληνικά (ancient)",
-	"be" => "Беларуская мова",
-	"bn" => "বাংলা",
-	"kn" => "ქართული",
-	"ml" => "മലയാളം",
-	"gu" => "ગુજરાતી",
-	"hi" => "हिन्दी",
-	"or" => "ଓଡ଼ିଆ",
-	"pa" => "ਪੰਜਾਬੀ",
-	"ta" => "தமிழ்",
-	"te" => "తెలుగు",
-	"hy" => "Հայերեն լեզու"
+	"be" => "Беларуская (Belarusian)",
+	"bn" => "বাংলা (Bengali)",
+	"ca" => "Català (Catalan)",
+	"cs" => "Česky (Czech)",
+	"da" => "Dansk (Danish)",
+	"de" => "Deutsch (German)",
+	"el-monoton" => "Ελληνική monotone (monotone greek)",
+	"el-polyton" => "Ελληνική polytone (polytone greek)",
+	"en-gb" => "British English (en-gb)",
+	"en-us" => "American English (en-us/en)",
+	"es" => "Español (Spanish)",
+	"fi" => "Suomi (Finnish)",
+	"fr" => "Français (French)",
+	"grc" => "Ελληνική ancient (ancient greek)",
+	"gu" => "ગુજરાતી (Gujarati)",
+	"hi" => "हिंदी (Hindi)",
+	"hu" => "Magyar (Hungarian)",
+	"hy" => "Հայերեն լեզու (Armenian)",
+	"it" => "Italiano (Italian)",
+	"ka" => "ಕನ್ನಡ (Kannada)",
+	"la" => "Latina (Latin)",
+	"lt" => "Lietuvių (Lithuanian)",
+	"lv" => "latviešu valoda (Latvian)",
+	"ml" => "മലയാളം (Malayalam)",
+	"nl" => "Nederlands (Dutch)",
+	"nb-no" => "Norsk (Norwegian)",
+	"or" => "ଓଡ଼ିଆ (Oriya)",
+	"pa" => "ਪੰਜਾਬੀ (Punjabi)",
+	"pl" => "Polski (Polish)",
+	"pt" => "Português (Portuguese)",
+	"ru" => "Pyccĸий (Russian)",
+	"sk" => "Slovenčina (Slovak)",
+	"sl" => "Slovenščina (Slovenian)",
+	"sv" => "Svenska (Swedish)",
+	"ta" => "தமிழ் (Tamil)",
+	"te" => "తెలుగు (Telugu)",
+	"tr" => "Türkçe (Turkish)",
+	"uk" => "Українська (Ukrainian)"
 );
 
 // list of option names (without "languages")
-$hyphenator_options = array("classname", "minwordlenght", "addexceptions", "displaytogglebox", "hypenchar", "usetrunk", "intermediatestate");
+$hyphenator_options = array("classname", "minwordlenght", "defaultlanguage", "addexceptions", "displaytogglebox", "hypenchar", "usetrunk", "intermediatestate");
 
 // get current plugin version
 function hyphenator_version() {
@@ -53,18 +54,32 @@ function hyphenator_version() {
 
 // update options on version updates
 function hyphenator_update() {
-	switch (hyphenator_version()) {
-		case '3.3.0':   // option 'en' -> 'en-us'
-		case '3.3.0.1':
+	switch (get_option('hyphenator_version')) {
+		case '': // previous version <= 3.2.0 (test function exists since 3.3.0)
+			// option 'en' -> 'en-us'
 			$array = get_option('hyphenator_languages');
 			if ( is_array($array) && (($key = array_search('en', $array)) !== false) ) {
 				unset($array[$key]);
 				if (!in_array('en-us', $array)) {
 					$array[$key] = 'en-us';
 				}
-				update_option('hyphenator_languages', $array);
+				update_option('hyphenator_languages', array_values($array));
 			}
-			break;
+
+		case '3.3.0':
+		case '3.3.0.1':
+			// option 'no-nb' -> 'nb-no'
+			$array = get_option('hyphenator_languages');
+			if ( is_array($array) && (($key = array_search('no-nb', $array)) !== false) ) {
+				$array[$key] = 'nb-no';
+				update_option('hyphenator_languages', array_values($array));
+			}
+
+			// automatically set new default language option if only one language is used
+			$hyphenator_languages = get_option('hyphenator_languages');
+			if ($hyphenator_languages != 'auto' && count($hyphenator_languages) == 1) {
+				update_option('hyphenator_defaultlanguage', $hyphenator_languages[0]);
+			}
 	}
 }
 
@@ -79,13 +94,21 @@ if (isset($_POST['stage']) && 'process' == $_POST['stage']) {
 	foreach ($hyphenator_options as $opt) {
 		update_option('hyphenator_' . $opt, trim($_POST['hyphenator_' . $opt]));
 	}
-	
+
 	if ($_POST['hyphenator_lang'] != "auto") {
+		$deflang_is_manual = false;
+
 		foreach ($hyphenator_langindex as $lang => $language) {
 			if ($_POST['hyphenator_lang_' . $lang] == 1) {
-				$hyphenator_setlang[] =  $lang;
+				$hyphenator_setlang[] = $lang;
+				if ($lang == $_POST['hyphenator_defaultlanguage'])
+					$deflang_is_manual = true;
 			}
 		}
+
+		if (!$deflang_is_manual)
+			$hyphenator_setlang[] = $_POST['hyphenator_defaultlanguage'];
+
 		update_option('hyphenator_languages', $hyphenator_setlang);
 	} else {
 		update_option('hyphenator_languages', 'auto');
@@ -105,14 +128,14 @@ load_plugin_textdomain('hyphenator', PLUGINDIR.'/'.dirname(plugin_basename(__FIL
 <style type="text/css">
 fieldset { border: 0 none transparent; padding-left: 1px; }
 label, legend { font-weight: bold; display: block; margin-bottom: 0.3em; margin-left: 0.7em; clear: both; }
-ul#hyplang label { display: inline; margin: 0; }
-ul#hyplang ul { margin-left: 1.7em; margin-top: 0.2em; padding-bottom: 1em; float: left; }
+ul#hyplang label, ul#hypdefl label { display: inline; margin: 0; }
+ul#hyplang ul, ul#hypdefl ul { margin-left: 1.7em; margin-top: 0.2em; padding-bottom: 1em; float: left; }
 p, input, textarea { margin-left: 1.5em; }
 form p { margin-top: 0.1em; }
 p input { margin-left: 0; }
 h4 { font-size: 1.1em; font-weight: bold; }
 h3, h4 { margin-bottom: 0.2em; }
-p.moo { font-family: Georgia, Palatino, Palatino Linotype, Times, Times New Roman, serif; font-style: italic; color: #CCCCCC; text-align: center; line-height: 2em; border-top: 1px solid #CCCCCC; witdh: 90%; margin: 1.3em 0 0; }
+p.moo { font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif; font-style: italic; color: #CCCCCC; text-align: center; line-height: 2em; border-top: 1px solid #CCCCCC; witdh: 90%; margin: 1.3em 0 0; }
 </style>
 
 <script type="text/javascript">
@@ -142,7 +165,7 @@ jQuery(document).ready(function() {
   
   <h3><?php _e('Introduction', 'hyphenator') ?></h3>
   <img src="<?php echo $hyphenator_path ?>/logo.png" alt="" title="Logo" style="float: right;" />
-  <p><?php _e("Hyphenator automatically inserts seperators in the content, so that at the end of line the text is wrapped with a dash if applicable. Hyphenator.js, a JavaScript available under the terms of GPL3, is used. It fields the algorithm known from OpenOffice and LaTeX. As this is executed client-sidedly, it adapts itself to the respective browser environment and thus avoids a faulty display. The script is particularly suitable for justification and supports a variety of languages.", 'hyphenator') ?></p>
+  <p><?php _e("Hyphenator automatically inserts seperators in the content, so that at the end of line the text is wrapped with a dash if applicable. Hyphenator.js, a JavaScript available under the terms of LGPL v3, is used. It fields the algorithm known from OpenOffice and LaTeX. As this is executed client-sidedly, it adapts itself to the respective browser environment and thus avoids a faulty display. The script is particularly suitable for justification and supports a variety of languages.", 'hyphenator') ?></p>
   <p><?php _e("Supported browsers: Mozilla Firefox since version 3, Opera since version 7.10, Internet Explorer since version 6.0, Apple Safari since version 2 and any other browser supporting &amp;shy; as well as JavaScript.", 'hyphenator') ?></p>
   
   <h3><?php _e('Configuration', 'hyphenator') ?></h3>
@@ -171,13 +194,13 @@ jQuery(document).ready(function() {
        <ul>
 <?php
 	    $i = 0;
-		$count = ceil(count($hyphenator_langindex) / 3);
+		$count = ceil(count($hyphenator_langindex) / 2);
 	    foreach ($hyphenator_langindex as $lang => $language) {
 	    	if ($i % $count == 0 && $i != 0) {
 	    		echo "       </ul>\n       <ul>\n";
 			}
 			$check = '';
-			if ($hyphenator_['languages'] != 'auto') {
+			if ($hyphenator_['languages'] != 'auto' && $hyphenator_['languages'] != '') {
 				foreach ($hyphenator_['languages'] as $setlang) {
 					if ($lang == $setlang) {
 						$check = "checked=\"checked\" ";
@@ -185,7 +208,35 @@ jQuery(document).ready(function() {
 					}
 				}
 			}
+
 			echo "       <li><input id=\"lang_{$lang}\" name=\"hyphenator_lang_{$lang}\" type=\"checkbox\" value=\"1\" {$check}/> <label for=\"lang_{$lang}\" title=\"patterns/{$lang}.js\">{$language}</label></li>\n";
+	    	$i++;
+		}
+    	?>
+       </ul>
+      </li>
+     </ul>
+    </fieldset>
+
+
+    <fieldset>
+    <legend><?php _e('default language', 'hyphenator') ?> <small>(<?php _e('used in case no lang-attribute could be found', 'hyphenator') ?>)</small></legend>
+     <ul id="hypdefl">
+      <ul>
+<?php
+	    $i = 0;
+		$count = ceil(count($hyphenator_langindex) / 2);
+	    foreach ($hyphenator_langindex as $lang => $language) {
+	    	if ($i % $count == 0 && $i != 0) {
+	    		echo "       </ul>\n       <ul>\n";
+			}
+			if ($lang == $hyphenator_['defaultlanguage']) {
+				$check = "checked=\"checked\" ";
+			} else {
+				$check = '';
+			}
+
+			echo "       <li><input id=\"deflang_{$lang}\" name=\"hyphenator_defaultlanguage\" type=\"radio\" value=\"{$lang}\" {$check}/> <label for=\"deflang_{$lang}\" title=\"patterns/{$lang}.js\">{$language}</label></li>\n";
 	    	$i++;
 		}
     	?>
@@ -228,7 +279,7 @@ jQuery(document).ready(function() {
 
 
   <h3><?php _e('And now?', 'hyphenator') ?></h3>
-  <p><?php _e("If you like the plugin, then recommend Hyphenator or donate a little money. You know? Now and forever.", 'hyphenator') ?></p>
+  <p><?php _e("That's all. If you like the plugin, then recommend Hyphenator to your friends.", 'hyphenator') ?></p>
   
   <p class="moo"><?php _e("You can never be sure.", 'hyphenator') ?></p>
 
