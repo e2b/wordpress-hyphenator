@@ -6,7 +6,7 @@ Requires at least: 2.7
 Tested up to: 3.3.1
 Stable tag: 4.0.0
 
-Soft hyphen are automatically added in the content for nicer automatic word wrap. Particularly suitable for justification. Uses Hyphenator.js.
+Soft hyphen are automatically added in the content for a nicer automatic word wrap. Particularly suitable for justification. Uses Hyphenator.js.
 
 == Description ==
 Hyphenator automatically inserts seperators in the content, so that at the end of line the text is wrapped with a dash if applicable. Hyphenator.js, a JavaScript available under the terms of LGPL v3, is used. It fields the algorithm known from OpenOffice and LaTeX. As this is executed client-sidedly, it adapts itself to the respective browser environment and thus avoids a faulty display. The script is particularly suitable for justification and supports a variety of languages.
