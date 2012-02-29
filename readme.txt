@@ -41,6 +41,49 @@ Visit the [project homepage](http://code.google.com/p/hyphenator/ "hyphenator - 
 1. Configure it throught the new menu item 'Hyphenator' in 'Settings'
 
 == Frequently Asked Questions ==
+= Supported Browsers =
+* Mozilla Firefox 3+
+* Google Chrome 1+
+* Opera 7.1+
+* Internet Explorer 6+
+* Apple Safari 2+
+* Konqueror 3.5+
+
+And any other modern browser that supports JavaScript and the soft hyphen (&amp;shy;).
+
+= Shouldn't hyphenation be done on the server side? =
+> There are some arguments against client side hyphenation - true. It costs a lot of computing time and the patterns have to be loaded for each language, everytime. But I believe that hyphenation belongs to the client:
+> 
+> * Only the client «knows» where to break a line (and if at all).
+> * A html file that has been hyphenated on the server would be full of &amp;shy;'s. That's ugly and nobody knows how that would be treated by search engines…
+> * Hyphenation on the client can be turned off to work around copy&paste- and search-bugs in most browsers.
+> * as JavaScript-engines are in focus of development, they become faster and faster.
+> * there are billions of mostly underworked clients vs. millions of often overloaded servers.
+
+*([Source](http://code.google.com/p/hyphenator/wiki/en_FAQ#Shouldn't_hyphenation_be_done_on_the_server_side?))*
+
+= Hyphenator breaks the search functionality of my browser = 
+> Your browser has a bug (currently, only Firefox3 finds hyphenated words). So I don't want/can't fix this in Hyphenator.js. The only thing we can do is to turn hyphenation off before searching.
+
+*([Source](http://code.google.com/p/hyphenator/wiki/en_FAQ#Hyphenator_breaks_the_search_functionality_of_my_browser))*
+
+= When I copy/paste hyphenated texts from a website, spaces/hyphens are inserted in allmost all words =
+> This is fixed since version 3.0.0.
+
+*([Source](http://code.google.com/p/hyphenator/wiki/en_FAQ#When_I_copy/paste_hyphenated_texts_from_a_website,_spaces/hyphen))*
+
+= JavaScript is insecure and evil. It should be turned off in every browser! =
+> Welcome to Web 2.0, the world of AJAX and modern browsers! It's true, JavaScript had a very bad reputation - not because JavaScript itself is bad, but because of a very poor implementation in some browsers. As of today JavaScripts influence is growing and browser developers put a lot of work in making their JavaScript engines better, secure and really fast. There are a lot of webpages using JavaScript in a good manner. Further, Hyphenator.js follows the rules of **[unobtrusive JavaScript](http://en.wikipedia.org/wiki/Unobtrusive_JavaScript)**.
+
+*([Source](http://code.google.com/p/hyphenator/wiki/en_FAQ#JavaScript_is_insecure_and_evil._It_should_be_turned_off_in_ever))*
+
+= How about Accessibility? =
+> Following the rules of **[unobtrusive JavaScript](http://en.wikipedia.org/wiki/Unobtrusive_JavaScript)** Hyphenator.js has AFAIK no influence on accessibility of your webpage. It just adds a feature that will not be missed by a screen reader.
+> 
+> Some screen readers have issues with words that contain soft hyphens (they read syllables instead of words). Please note that this is not an issue of Hyphenator but a bug in the screen reader. Please contact the makers of the screen reader application.
+
+*([Source](http://code.google.com/p/hyphenator/wiki/en_FAQ#How_about_Accessibility?))*
+
 = Why shows my WordPress no update to 1.0.0.1? =
 * **Reason:** I have relaunched the version numeration for Hyphenator version 1.0.0 so that it answers to the new version of the Hyphenator.js project. The downside is people using the previous version won't be notified due to the new versions 1.0.0 and 1.0.0.1. Sorry, I fizzled it.
 * **Solution:** Try to install the new version manually. Maybe you have to delete the existing installation of Hyphenator first. An other option is to go to 'Edit' in 'Plugins' in Wordpress, select 'Hyphenator' and alter the version number into a minor one, 0.1 should work. Save and then WordPress will show you an Update for 'Hyphenator' you can install. Done.
@@ -59,7 +102,7 @@ Visit the [project homepage](http://code.google.com/p/hyphenator/ "hyphenator - 
       * correct language code for Norwegian Bokmål
 * new default language option
 
-= older versions =
+= Older Versions =
 * 0.0.7   (12.10.2008) - first version (released first as version 1.0)
 * 0.0.8   (15.10.2008) - updated to Hyphenator.js v8 (beta)
 * 0.0.81  (22.10.2008) - updated to Hyphenator.js v8_1 (beta)
@@ -89,11 +132,13 @@ Updated to the latest version of Hyphenator.js (4.0.0) and small improvements. P
 You can see a working example of Hyphenator.js [here](http://hyphenator.googlecode.com/svn/trunk/WorkingExample.html "Example of using Hyphenator.js").
 
 == License ==
-* Plugin licensed under GLP3: Copyright (C) 2008-2012 Benedict B. alias e2b
+* Plugin licensed under GPLv3: Copyright (C) 2008-2012 Benedict B. alias e2b
 * Hyphenator.js licensed under LGPLv3: Copyright (C) 2011 Mathias Nater, Zürich
 
 This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
 
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the [GNU General Public License](http://www.gnu.org/licenses/gpl.html "The GNU General Public License - GNU Project - Free Software Foundation (FSF)") for more details.
+
+Some patterns in the pattern files have different licenses specified in the pattern files.
 
 The custom header used in the Wordpress Plugin Directory is based on the image [Compositor by Stephen Hampshire](http://www.flickr.com/photos/stephenhampshire/3337704597/) and licensed under [Creative Commons Attribution 2.0](http://creativecommons.org/licenses/by/2.0/).
