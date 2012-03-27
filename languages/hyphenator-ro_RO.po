@@ -1,0 +1,112 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: hyphenator\n"
+"POT-Creation-Date: 2008-10-12 00:00+0000\n"
+"PO-Revision-Date: 2012-03-26 09:43+0200\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Romanian\n"
+"X-Poedit-Country: Romania\n"
+"Language-Team: Web Geeks\n"
+"Last-Translator: \n"
+
+## long text
+msgid "Hyphenator automatically inserts seperators in the content, so that at the end of line the text is wrapped with a dash if applicable. Hyphenator.js, a JavaScript available under the terms of LGPL v3, is used. It fields the algorithm known from OpenOffice and LaTeX. As this is executed client-sidedly, it adapts itself to the respective browser environment and thus avoids a faulty display. The script is particularly suitable for justification and supports a variety of languages."
+msgstr "Despărţitor în silabe pentru inserează automat seperators în conţinut, astfel încât la capătul liniei de textul este învelit cu o liniuţă, dacă este cazul. Hyphenator.js, disponibile în conformitate cu LGPL v3, JavaScript este utilizat. Aceasta câmpurile algoritm cunoscut la OpenOffice şi LaTeX. Ca aceasta este executat client-sidedly, acesta se adaptează sine la mediu de browser respectivă şi evită astfel un defect de afişare. Script-ul este adecvată în special pentru justificarea şi sprijină o varietate de limbi."
+
+msgid "Supported browsers: Mozilla Firefox since version 3, Opera since version 7.10, Internet Explorer since version 6.0, Apple Safari since version 2 and any other browser supporting &shy; as well as JavaScript."
+msgstr "Browsere acceptate: Mozilla Firefox începând cu versiunea 3, Opera începând cu versiunea 7.10, Internet Explorer începând cu versiunea 6.0, Apple Safari din versiunea 2 și orice alte browser-ul de sprijin & timid; precum şi JavaScript."
+
+msgid "Hyphenator can only be adapted to an HTML class. It is therefore imperatively necessary that the content which should be filtered already has its own class in the source code of the page, otherwise such class should be adde at the page design. Mostly, however, an appropriate class already exists and can be directly used. Unfortunately, it is necessary that you are able to read HTML. Otherwise, the only possibility is to give the often used class names \"post\", \"entry\" and \"content\" a try."
+msgstr "Hyphenator poate fi adaptat la o clasa de HTML. Prin urmare, este imperios necesar ca conţinutul pe care ar trebui să fie filtrată are deja propria sa clasă în codul sursă al paginii, altfel de clasă ar trebui să fie adde la design-ul paginii. Cea mai mare parte, cu toate acestea, o clasa corespunzătoare deja există şi pot fi utilizate direct. Din păcate, este necesar ca sunteţi în stare să citească HTML. În caz contrar, singura posibilitate este de a oferi numele de multe ori folosite de clasa \"post\", \"de intrare\" si \"continut\" o incearca."
+
+msgid "Moreover, it is important for the filtered elements that a language is defined in the HTML code. This can also be specified by a parent element. Only then Hyphenator knows what language filter must be applied. Fortunately, this is very often defined in the design."
+msgstr "În plus, este important pentru elementele filtrate că o limbă este definit în codul HTML. Acest lucru poate fi specificată, de asemenea, de un element părinte. Numai apoi Despărţitor în silabe pentru ştie ce filtru limbă trebuie să fie aplicate. Din fericire, acest lucru este foarte adesea definit în proiectarea."
+
+msgid "Should there be questions regarding the right class name or the setting of the language attribute, it can be simply asked at the WordPress Forums."
+msgstr "Acolo ar trebui să fie întrebări cu privire la numele de clasa dreapta sau stabilirea acest atribut de limbă, acesta poate pur şi simplu cere în forumuri WordPress."
+
+msgid "That's all. If you like the plugin, then recommend Hyphenator to your friends."
+msgstr "Asta e tot. Dacă vă place plugin-ul, apoi recomanda Despărţitor în silabe pentru a prietenilor tăi."
+
+msgid "You can never be sure."
+msgstr "Puteţi fi niciodată sigur."
+
+## short phrases
+#: plugin.php:35
+msgid "Hyphenator Options"
+msgstr "Despărţitor în silabe pentru opţiuni"
+
+msgid "Introduction"
+msgstr "Introducere"
+
+msgid "Configuration"
+msgstr "Configurare"
+
+msgid "class name of content to hyphenate"
+msgstr "numele clasei de conţinut pentru a despărţi în silabe"
+
+msgid "minimal length of words"
+msgstr "lungimea minimă de cuvinte"
+
+msgid "filtered languages"
+msgstr "limbile filtrată"
+
+msgid "automatic"
+msgstr "automată"
+
+msgid "manual"
+msgstr "manual"
+
+msgid "faster"
+msgstr "mai repede"
+
+msgid "default language"
+msgstr "limba implicită"
+
+msgid "used in case no lang-attribute could be found"
+msgstr "utilizate în cazul lang-atribut nu a putut fi găsit"
+
+msgid "exceptions"
+msgstr "excepţii"
+
+msgid "example"
+msgstr "exemplu"
+
+msgid "WordPress will never be devided, Benedict only on the given positions"
+msgstr "WordPress nu va fi niciodată divizată, Benedict numai pe poziţiile dat"
+
+msgid "Optionaly"
+msgstr "Optional"
+
+msgid "display an on-off switch"
+msgstr "afişaţi un on-off comutator"
+
+msgid "display each hyphen character for testing"
+msgstr "afişează fiecare caracter cratimă pentru testarea"
+
+msgid "use Hyphenator.js from developer trunk"
+msgstr "Utilizaţi Hyphenator.js la dezvoltatorul trunchiului"
+
+msgid "do not hide content during hyphenation"
+msgstr "nu ascunde conţinutul în timpul despărţirii în silabe"
+
+msgid "Save Changes"
+msgstr "Salvaţi modificările"
+
+msgid "And now?"
+msgstr "Şi acum?"
+
+## multiple short phrases
+msgid "none"
+msgstr "nici unul"
+
+msgid "security risk"
+msgstr "risc de securitate"
+
+msgid "no"
+msgstr "nu"
+
+msgid "default"
+msgstr "implicit"

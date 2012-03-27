@@ -9,13 +9,13 @@ Stable tag: 4.0.0
 Soft hyphens are automatically added in the content for a nicer automatic word wrap. Particularly suitable for justification. Uses Hyphenator.js.
 
 == Description ==
-Hyphenator automatically inserts seperators in the content, so that at the end of line the text is wrapped with a dash if applicable. Hyphenator.js, a JavaScript available under the terms of LGPL v3, is used. It fields the algorithm known from OpenOffice and LaTeX. As this is executed client-sidedly, it adapts itself to the respective browser environment and thus avoids a faulty display. The script is particularly suitable for justification and supports a variety of languages.
+Hyphenator automatically inserts separators in the content, so that at the end of line the text is wrapped with a dash if applicable. Hyphenator.js, a JavaScript available under the terms of LGPL v3, is used. It fields the algorithm known from OpenOffice and LaTeX. As this is executed client-sidedly, it adapts itself to the respective browser environment and thus avoids a faulty display. The script is particularly suitable for justification and supports a variety of languages.
 
 = Supported Languages =
 Беларуская (Belarusian), বাংলা (Bengali), Català (Catalan), Česky (Czech), Dansk (Danish), Deutsch (German), Ελληνική monotone (monotone greek), Ελληνική polytone (polytone greek), British English (British English), American English (American English), Español (Spanish), Suomi (Finnish), Français (French), Ελληνική ancient (ancient greek), ગુજરાતી (Gujarati), हिंदी (Hindi), Magyar (Hungarian), Հայերեն լեզու (Armenian), Italiano (Italian), ಕನ್ನಡ (Kannada), Latina (Latin), Lietuvių (Lithuanian), latviešu valoda (Latvian), മലയാളം (Malayalam), Nederlands (Dutch), Norsk (Norwegian), ଓଡ଼ିଆ (Oriya), ਪੰਜਾਬੀ (Punjabi), Polski (Polish), Português (Portuguese), Pyccĸий (Russian), Slovenčina (Slovak), Slovenščina (Slovenian), Svenska (Swedish), தமிழ் (Tamil), తెలుగు (Telugu), Türkçe (Turkish), Українська (Ukrainian)
 
 = Features =
-This Plugin includes Hyphenator.js into your blog for inserting separators automatically. The user settings backend available in English and German is easy to understand and everything could be configured there.
+This plugin includes Hyphenator.js into your blog for inserting separators automatically. The user settings backend available in English, German and Romanian is easy to understand and everything could be configured there.
 
 = What's Hyphenator.js? =
 > **Hyphenator.js …**
@@ -38,7 +38,7 @@ Visit the [project homepage](http://code.google.com/p/hyphenator/ "hyphenator - 
 == Installation ==
 1. Unzip and upload the archive to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Configure it throught the new menu item 'Hyphenator' in 'Settings'
+1. Configure it through the new menu item 'Hyphenator' in 'Settings'
 
 == Frequently Asked Questions ==
 = Supported Browsers =
@@ -67,7 +67,7 @@ And any other modern browser that supports JavaScript and the soft hyphen (&amp;
 
 *([Source](http://code.google.com/p/hyphenator/wiki/en_FAQ#Hyphenator_breaks_the_search_functionality_of_my_browser))*
 
-= When I copy/paste hyphenated texts from a website, spaces/hyphens are inserted in allmost all words =
+= When I copy/paste hyphenated texts from a website, spaces/hyphens are inserted in almost all words =
 > This is fixed since version 3.0.0.
 
 *([Source](http://code.google.com/p/hyphenator/wiki/en_FAQ#When_I_copy/paste_hyphenated_texts_from_a_website,_spaces/hyphen))*
@@ -130,6 +130,9 @@ Updated to the latest version of Hyphenator.js (4.0.0) and small improvements. P
 
 == Example ==
 You can see a working example of Hyphenator.js [here](http://hyphenator.googlecode.com/svn/trunk/WorkingExample.html "Example of using Hyphenator.js").
+
+== Thanks to ==
+* Web Geek Science ([Web Hosting Geeks](http://webhostinggeeks.com/)) for the Romanian translation
 
 == License ==
 * Plugin licensed under GPLv3: Copyright (C) 2008-2012 Benedict B. alias e2b
