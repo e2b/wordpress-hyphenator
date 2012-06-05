@@ -9,13 +9,13 @@ Author: Benedict B.
 
 // Pre-2.6 compatibility
 if (!defined('WP_PLUGIN_URL'))
-   define('WP_PLUGIN_URL', get_option( 'siteurl' ) . '/wp-content/plugins');
+   define('WP_PLUGIN_URL', site_url() . '/wp-content/plugins');
 
 // detect the plugin path
 $hyphenator_path = WP_PLUGIN_URL . "/hyphenator";
 
 // detect options page
-$hyphenator_options_page = get_option('siteurl') . '/wp-admin/admin.php?page=hyphenator/options.php';
+$hyphenator_options_page = site_url() . '/wp-admin/admin.php?page=hyphenator/options.php';
 
 // add default options
 add_option('hyphenator_version', '');
