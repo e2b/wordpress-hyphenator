@@ -16,6 +16,12 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e;_n;_x;_ex;_en\n"
 "X-Poedit-SearchPath-0: .\n"
 
+msgid "Hyphenator"
+msgstr ""
+
+msgid "Soft hyphens are automatically added in the content for a nicer automatic word wrap. Particularly suitable for justification. Uses <a href="http://code.google.com/p/hyphenator/">Hyphenator.js</a>."
+msgstr ""
+
 #: options.php:168 plugin.php:41
 msgid "Hyphenator Options"
 msgstr ""
