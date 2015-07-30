@@ -278,7 +278,7 @@ jQuery(document).ready(function() {
      <small><?php _e('default', 'hyphenator'); echo ": "; _e('no', 'hyphenator'); ?></small></p>
 
     <p class="submit">
-      <input type="submit" name="Submit" value="<?php _e('Save Changes', 'hyphenator') ?>" />
+      <input type="submit" name="Submit" id="submit" class="button button-primary" value="<?php _e('Save Changes', 'hyphenator') ?>" />
     </p>
   </form>
 
