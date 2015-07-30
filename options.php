@@ -47,7 +47,7 @@ $hyphenator_langindex = array(
 );
 
 // list of option names (without "languages")
-$hyphenator_options = array("classname", "minwordlenght", "defaultlanguage", "addexceptions", "displaytogglebox", "hypenchar", "usetrunk", "intermediatestate");
+$hyphenator_options = array("classname", "donthyphenateclassname", "minwordlenght", "defaultlanguage", "addexceptions", "displaytogglebox", "hypenchar", "usetrunk", "intermediatestate");
 
 // get current plugin version
 function hyphenator_version() {
@@ -185,6 +185,10 @@ jQuery(document).ready(function() {
     <label for="opt1"><?php _e('class name of content to hyphenate', 'hyphenator') ?></label>
      <input id="opt1" name="hyphenator_classname" type="text" size="10" value="<?php echo $hyphenator_['classname'] ?>" />
      <p><small><?php _e('default', 'hyphenator'); echo ": hyphenate" ?></small></p>
+    
+    <label for="opt9"><?php _e("class name of content to don't hyphenate", 'hyphenator') ?></label>
+     <input id="opt9" name="hyphenator_donthyphenateclassname" type="text" size="13" value="<?php echo $hyphenator_['donthyphenateclassname'] ?>" />
+     <p><small><?php _e('default', 'hyphenator'); echo ": donthyphenate" ?></small></p>
      
     <label for="opt2"><?php _e('minimal length of words', 'hyphenator') ?></label>
      <input id="opt2" name="hyphenator_minwordlenght" type="number" size="10" value="<?php echo $hyphenator_['minwordlenght'] ?>" />

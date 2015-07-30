@@ -97,6 +97,7 @@ And any other modern browser that supports JavaScript and the soft hyphen (&amp;
    * Added support for Romanian and Serbian cyrillic.
    * Better performance
    * Bugfixes
+* added support for `donthyphenateclassname`
 * added Polish translation
 
 = 4.1.0 (29.10.2012) =
@@ -141,7 +142,7 @@ And any other modern browser that supports JavaScript and the soft hyphen (&amp;
 
 == Upgrade Notice ==
 = 5.1.0 =
-Updated to the latest version of Hyphenator.js (5.1.0). Please check the settings for new languages. Added Polish translation.
+Updated to the latest version of Hyphenator.js (5.1.0). Please check the settings for new languages. Added "donthyphenateclassname" option. Added Polish translation.
 
 = 4.1.0 =
 Updated to the latest version of Hyphenator.js (4.1.0). Please check the settings for new languages.

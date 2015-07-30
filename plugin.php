@@ -20,6 +20,7 @@ $hyphenator_options_page = site_url() . '/wp-admin/admin.php?page=hyphenator/opt
 // add default options
 add_option('hyphenator_version', '');
 add_option('hyphenator_classname', 'hyphenate');
+add_option('hyphenator_donthyphenateclassname', 'donthyphenate');
 add_option('hyphenator_minwordlenght', '6');
 add_option('hyphenator_languages', 'auto');
 add_option('hyphenator_defaultlanguage', '');
@@ -47,6 +48,7 @@ add_action('wp_head', 'hyphenator_header');
 function hyphenator_header() {
 	// get values
 	$hyphenator_classname = get_option('hyphenator_classname');
+	$hyphenator_donthyphenateclassname = get_option('hyphenator_donthyphenateclassname');
 	$hyphenator_minwordlenght = get_option('hyphenator_minwordlenght');
 	$hyphenator_languages = get_option('hyphenator_languages');
 	$hyphenator_defaultlanguage = get_option('hyphenator_defaultlanguage');
@@ -85,6 +87,9 @@ function hyphenator_header() {
 	}
 	if ($hyphenator_classname != '') {
 		$hyphenatorHeadConfig .= "\n\t\t\tclassname: '{$hyphenator_classname}',";
+	}
+	if ($hyphenator_donthyphenateclassname != '') {
+		$hyphenatorHeadConfig .= "\n\t\t\tdonthyphenateclassname: '{$hyphenator_donthyphenateclassname}',";
 	}
 	if ($hyphenator_displaytogglebox == '1') {
 		$hyphenatorHeadConfig .= "\n\t\t\tdisplaytogglebox: true,";
