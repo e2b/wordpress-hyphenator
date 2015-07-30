@@ -187,7 +187,7 @@ jQuery(document).ready(function() {
      <p><small><?php _e('default', 'hyphenator'); echo ": hyphenate" ?></small></p>
      
     <label for="opt2"><?php _e('minimal length of words', 'hyphenator') ?></label>
-     <input id="opt2" name="hyphenator_minwordlenght" type="text" size="10" value="<?php echo $hyphenator_['minwordlenght'] ?>" />
+     <input id="opt2" name="hyphenator_minwordlenght" type="number" size="10" value="<?php echo $hyphenator_['minwordlenght'] ?>" />
      <p><small><?php _e('default', 'hyphenator'); echo ": 6"; ?></small></p>
    
    
