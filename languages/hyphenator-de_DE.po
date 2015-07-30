@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: hyphenator\n"
-"POT-Creation-Date: 2015-07-30 16:33+0200\n"
-"PO-Revision-Date: 2015-07-30 16:33+0200\n"
+"POT-Creation-Date: 2015-07-30 16:51+0200\n"
+"PO-Revision-Date: 2015-07-30 16:51+0200\n"
 "Last-Translator: Maciej Gryniuk <maciejka45@gmail.com>\n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -11,6 +11,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.8.3\n"
+
+msgid "Hyphenator"
+msgstr ""
+
+msgid ""
+"Soft hyphens are automatically added in the content for a nicer automatic "
+"word wrap. Particularly suitable for justification. Uses <a href=\"http://"
+"code.google.com/p/hyphenator/\">Hyphenator.js</a>."
+msgstr ""
 
 # # short phrases
 #: options.php:168 plugin.php:41
