@@ -1,10 +1,10 @@
 === Hyphenator ===
-Contributors: e2b
+Contributors: e2b, odie2
 Donate link:
 Tags: hyphenator, hyphenation, hyphenate, hyphen, softhyphen, pattern, JavaScript, HTML, XHTML, shy, Silbentrennung, Worttrennung, Trennmuster
 Requires at least: 2.7
-Tested up to: 3.3.1
-Stable tag: 4.1.0
+Tested up to: 4.4.2
+Stable tag: 5.1.0
 
 Soft hyphens are automatically added in the content for a nicer automatic word wrap. Particularly suitable for justification. Uses Hyphenator.js.
 
@@ -12,10 +12,10 @@ Soft hyphens are automatically added in the content for a nicer automatic word w
 Hyphenator automatically inserts separators in the content, so that at the end of line the text is wrapped with a dash if applicable. Hyphenator.js, a JavaScript available under the terms of LGPL v3, is used. It fields the algorithm known from OpenOffice and LaTeX. As this is executed client-sidedly, it adapts itself to the respective browser environment and thus avoids a faulty display. The script is particularly suitable for justification and supports a variety of languages.
 
 = Supported Languages =
-Беларуская (Belarusian), বাংলা (Bengali), Català (Catalan), Česky (Czech), Dansk (Danish), Deutsch (German), Ελληνική monotone (monotone greek), Ελληνική polytone (polytone greek), British English (British English), American English (American English), Español (Spanish), Suomi (Finnish), Français (French), Ελληνική ancient (ancient greek), ગુજરાતી (Gujarati), हिंदी (Hindi), Magyar (Hungarian), Հայերեն լեզու (Armenian), Italiano (Italian), ಕನ್ನಡ (Kannada), Latina (Latin), Lietuvių (Lithuanian), latviešu valoda (Latvian), മലയാളം (Malayalam), Nederlands (Dutch), Norsk (Norwegian), ଓଡ଼ିଆ (Oriya), ਪੰਜਾਬੀ (Punjabi), Polski (Polish), Português (Portuguese), Pyccĸий (Russian), Slovenčina (Slovak), Slovenščina (Slovenian), Svenska (Swedish), தமிழ் (Tamil), తెలుగు (Telugu), Türkçe (Turkish), Українська (Ukrainian)
+Беларуская (Belarusian), বাংলা (Bengali), Català (Catalan), Česky (Czech), Dansk (Danish), Deutsch (German), Ελληνική monotone (monotone greek), Ελληνική polytone (polytone greek), British English (British English), American English (American English), Esperanto (Esperanto), Español (Spanish), Eesti (Estonian), Suomi (Finnish), Français (French), Ελληνική ancient (ancient greek), ગુજરાતી (Gujarati), हिंदी (Hindi), Magyar (Hungarian), Հայերեն լեզու (Armenian), Italiano (Italian), ಕನ್ನಡ (Kannada), Latina (Latin), Lietuvių (Lithuanian), latviešu valoda (Latvian), മലയാളം (Malayalam), Nederlands (Dutch), Norsk (Norwegian), ଓଡ଼ିଆ (Oriya), ਪੰਜਾਬੀ (Punjabi), Polski (Polish), Português (Portuguese), Român (Romanian), Pyccĸий (Russian), Slovenčina (Slovak), Slovenščina (Slovenian), Српска ћирилица (Serbian, Cyrillic), Српски (Serbian, Latin script), Svenska (Swedish), தமிழ் (Tamil), తెలుగు (Telugu), Türkçe (Turkish), Українська (Ukrainian)
 
 = Features =
-This plugin includes Hyphenator.js into your blog for inserting separators automatically. The user settings backend available in English, German and Romanian is easy to understand and everything could be configured there.
+This plugin includes Hyphenator.js into your blog for inserting separators automatically. The user settings backend available in English, German, Romanian and Polish is easy to understand and everything could be configured there.
 
 = What's Hyphenator.js? =
 > **Hyphenator.js …**
@@ -92,6 +92,14 @@ And any other modern browser that supports JavaScript and the soft hyphen (&amp;
 1. settings backend of version 4.0.0
 
 == Changelog ==
+= 5.1.0 (30.07.2015) =
+* updated to Hyphenator.js 5.1.0
+   * Added support for Romanian and Serbian cyrillic.
+   * Better performance
+   * Bugfixes
+* added support for `donthyphenateclassname`
+* added Polish translation
+
 = 4.1.0 (29.10.2012) =
 * updated to Hyphenator.js 4.1.0
    * faster pattern checking (async)
@@ -133,6 +141,9 @@ And any other modern browser that supports JavaScript and the soft hyphen (&amp;
 * 3.3.0.1 (03.07.2011) - fatal error fixed
 
 == Upgrade Notice ==
+= 5.1.0 =
+Updated to the latest version of Hyphenator.js (5.1.0). Please check the settings for new languages. Added "donthyphenateclassname" option. Added Polish translation.
+
 = 4.1.0 =
 Updated to the latest version of Hyphenator.js (4.1.0). Please check the settings for new languages.
 

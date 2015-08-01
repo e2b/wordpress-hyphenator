@@ -1,10 +1,12 @@
 <?php
 /*
 Plugin Name: Hyphenator
-Version: 4.1.0
+Version: 5.1.0
 Plugin URI: http://wordpress.org/extend/plugins/hyphenator/
-Description: Soft hyphens are automatically added in the content for a nicer automatic word wrap. Particularly suitable for justification. Uses <a href="http://code.google.com/p/hyphenator/">Hyphenator.js</a> 4.1.0.
-Author: Benedict B.
+Description: Soft hyphens are automatically added in the content for a nicer automatic word wrap. Particularly suitable for justification. Uses <a href="http://code.google.com/p/hyphenator/">Hyphenator.js</a>.
+Author: Benedict B., Maciej Gryniuk
+Text Domain: hyphenator
+Domain Path: /languages/
 */
 
 // Pre-2.6 compatibility
@@ -20,6 +22,7 @@ $hyphenator_options_page = site_url() . '/wp-admin/admin.php?page=hyphenator/opt
 // add default options
 add_option('hyphenator_version', '');
 add_option('hyphenator_classname', 'hyphenate');
+add_option('hyphenator_donthyphenateclassname', 'donthyphenate');
 add_option('hyphenator_minwordlenght', '6');
 add_option('hyphenator_languages', 'auto');
 add_option('hyphenator_defaultlanguage', '');
@@ -47,6 +50,7 @@ add_action('wp_head', 'hyphenator_header');
 function hyphenator_header() {
 	// get values
 	$hyphenator_classname = get_option('hyphenator_classname');
+	$hyphenator_donthyphenateclassname = get_option('hyphenator_donthyphenateclassname');
 	$hyphenator_minwordlenght = get_option('hyphenator_minwordlenght');
 	$hyphenator_languages = get_option('hyphenator_languages');
 	$hyphenator_defaultlanguage = get_option('hyphenator_defaultlanguage');
@@ -85,6 +89,9 @@ function hyphenator_header() {
 	}
 	if ($hyphenator_classname != '') {
 		$hyphenatorHeadConfig .= "\n\t\t\tclassname: '{$hyphenator_classname}',";
+	}
+	if ($hyphenator_donthyphenateclassname != '') {
+		$hyphenatorHeadConfig .= "\n\t\t\tdonthyphenateclassname: '{$hyphenator_donthyphenateclassname}',";
 	}
 	if ($hyphenator_displaytogglebox == '1') {
 		$hyphenatorHeadConfig .= "\n\t\t\tdisplaytogglebox: true,";

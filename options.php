@@ -33,9 +33,11 @@ $hyphenator_langindex = array(
 	"pa" => "ਪੰਜਾਬੀ (Punjabi)",
 	"pl" => "Polski (Polish)",
 	"pt" => "Português (Portuguese)",
+	"ro" => "Român (Romanian)",
 	"ru" => "Pyccĸий (Russian)",
 	"sk" => "Slovenčina (Slovak)",
 	"sl" => "Slovenščina (Slovenian)",
+	"sr-cyrl" => "Српска ћирилица (Serbian, Cyrillic)",
 	"sr-latn" => "Srpski (Serbian, Latin script)",
 	"sv" => "Svenska (Swedish)",
 	"ta" => "தமிழ் (Tamil)",
@@ -45,7 +47,7 @@ $hyphenator_langindex = array(
 );
 
 // list of option names (without "languages")
-$hyphenator_options = array("classname", "minwordlenght", "defaultlanguage", "addexceptions", "displaytogglebox", "hypenchar", "usetrunk", "intermediatestate");
+$hyphenator_options = array("classname", "donthyphenateclassname", "minwordlenght", "defaultlanguage", "addexceptions", "displaytogglebox", "hypenchar", "usetrunk", "intermediatestate");
 
 // get current plugin version
 function hyphenator_version() {
@@ -183,9 +185,13 @@ jQuery(document).ready(function() {
     <label for="opt1"><?php _e('class name of content to hyphenate', 'hyphenator') ?></label>
      <input id="opt1" name="hyphenator_classname" type="text" size="10" value="<?php echo $hyphenator_['classname'] ?>" />
      <p><small><?php _e('default', 'hyphenator'); echo ": hyphenate" ?></small></p>
+    
+    <label for="opt9"><?php _e("class name of content to don't hyphenate", 'hyphenator') ?></label>
+     <input id="opt9" name="hyphenator_donthyphenateclassname" type="text" size="13" value="<?php echo $hyphenator_['donthyphenateclassname'] ?>" />
+     <p><small><?php _e('default', 'hyphenator'); echo ": donthyphenate" ?></small></p>
      
     <label for="opt2"><?php _e('minimal length of words', 'hyphenator') ?></label>
-     <input id="opt2" name="hyphenator_minwordlenght" type="text" size="10" value="<?php echo $hyphenator_['minwordlenght'] ?>" />
+     <input id="opt2" name="hyphenator_minwordlenght" type="number" size="10" value="<?php echo $hyphenator_['minwordlenght'] ?>" />
      <p><small><?php _e('default', 'hyphenator'); echo ": 6"; ?></small></p>
    
    
@@ -276,7 +282,7 @@ jQuery(document).ready(function() {
      <small><?php _e('default', 'hyphenator'); echo ": "; _e('no', 'hyphenator'); ?></small></p>
 
     <p class="submit">
-      <input type="submit" name="Submit" value="<?php _e('Save Changes', 'hyphenator') ?>" />
+      <input type="submit" name="Submit" id="submit" class="button button-primary" value="<?php _e('Save Changes', 'hyphenator') ?>" />
     </p>
   </form>
 
