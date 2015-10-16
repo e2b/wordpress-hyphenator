@@ -182,7 +182,6 @@ jQuery(document).ready(function() {
   <form name="form1" method="post" action="<?php echo $hyphenator_options_page ?>&amp;updated=true">
 	<input type="hidden" name="stage" value="process" />
     
-    <label for="opt1"><?php _e('class name of content to hyphenate', 'hyphenator') ?></label>
     <label for="opt10"><?php _e("script hook", 'hyphenator' ) ?></label>
      <select id="opt10" name="hyphenator_scripthook">
      	<option value="wp_head" <?php selected( $hyphenator_['scripthook'], 'wp_head' ); ?>>wp_head()</option>
@@ -190,6 +189,7 @@ jQuery(document).ready(function() {
      </select>
      <p><small><?php _e( 'default', 'hyphenator' ); echo ": wp_head()" ?></small></p>
     
+    <label for="opt1"><?php _e( 'class name of content to hyphenate', 'hyphenator' ) ?></label>
      <input id="opt1" name="hyphenator_classname" type="text" size="10" value="<?php echo $hyphenator_['classname'] ?>" />
      <p><small><?php _e('default', 'hyphenator'); echo ": hyphenate" ?></small></p>
     
