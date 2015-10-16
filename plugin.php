@@ -31,6 +31,7 @@ add_option('hyphenator_displaytogglebox', '');
 add_option('hyphenator_hypenchar', '');
 add_option('hyphenator_usetrunk', '');
 add_option('hyphenator_intermediatestate', '');
+add_option( 'hyphenator_scripthook', 'wp_head' );
 
 // load gettext files
 load_plugin_textdomain('hyphenator', PLUGINDIR.'/'.dirname(plugin_basename(__FILE__)), dirname(plugin_basename(__FILE__)).'/languages/');
@@ -45,7 +46,7 @@ function hyphenator_admin() {
 
 
 ### Function: hyphenator_header
-add_action('wp_head', 'hyphenator_header');
+add_action(get_option( 'hyphenator_scripthook' ), 'hyphenator_header' );
 
 function hyphenator_header() {
 	// get values

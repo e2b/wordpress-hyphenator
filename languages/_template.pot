@@ -180,3 +180,6 @@ msgstr ""
 #: options.php:293
 msgid "You can never be sure."
 msgstr ""
+
+msgid "script hook"
+msgstr ""

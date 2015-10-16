@@ -47,7 +47,7 @@ $hyphenator_langindex = array(
 );
 
 // list of option names (without "languages")
-$hyphenator_options = array("classname", "donthyphenateclassname", "minwordlenght", "defaultlanguage", "addexceptions", "displaytogglebox", "hypenchar", "usetrunk", "intermediatestate");
+$hyphenator_options = array("scripthook", "classname", "donthyphenateclassname", "minwordlenght", "defaultlanguage", "addexceptions", "displaytogglebox", "hypenchar", "usetrunk", "intermediatestate");
 
 // get current plugin version
 function hyphenator_version() {
@@ -135,7 +135,7 @@ fieldset { border: 0 none transparent; padding-left: 1px; }
 label, legend { font-weight: bold; display: block; margin-bottom: 0.3em; margin-left: 0.7em; clear: both; }
 ul#hyplang label, ul#hypdefl label { display: inline; margin: 0; }
 ul#hyplang ul, ul#hypdefl ul { margin-left: 1.7em; margin-top: 0.2em; padding-bottom: 1em; float: left; }
-p, input, textarea { margin-left: 1.5em; }
+p, input, textarea, select { margin-left: 1.5em; }
 form p { margin-top: 0.1em; }
 p input { margin-left: 0; }
 h4 { font-size: 1.1em; font-weight: bold; }
@@ -183,6 +183,13 @@ jQuery(document).ready(function() {
 	<input type="hidden" name="stage" value="process" />
     
     <label for="opt1"><?php _e('class name of content to hyphenate', 'hyphenator') ?></label>
+    <label for="opt10"><?php _e("script hook", 'hyphenator' ) ?></label>
+     <select id="opt10" name="hyphenator_scripthook">
+     	<option value="wp_head" <?php selected( $hyphenator_['scripthook'], 'wp_head' ); ?>>wp_head()</option>
+     	<option value="wp_footer" <?php selected( $hyphenator_['scripthook'], 'wp_footer' ); ?>>wp_footer()</option>
+     </select>
+     <p><small><?php _e( 'default', 'hyphenator' ); echo ": wp_head()" ?></small></p>
+    
      <input id="opt1" name="hyphenator_classname" type="text" size="10" value="<?php echo $hyphenator_['classname'] ?>" />
      <p><small><?php _e('default', 'hyphenator'); echo ": hyphenate" ?></small></p>
     
