@@ -4,7 +4,7 @@ Donate link:
 Tags: hyphenator, hyphenation, hyphenate, hyphen, softhyphen, pattern, JavaScript, HTML, XHTML, shy, Silbentrennung, Worttrennung, Trennmuster
 Requires at least: 2.7
 Tested up to: 4.4.3
-Stable tag: 5.1.1
+Stable tag: 5.1.5
 
 Soft hyphens are automatically added in the content for a nicer automatic word wrap. Particularly suitable for justification. Uses Hyphenator.js.
 
