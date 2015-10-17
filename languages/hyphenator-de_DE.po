@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: hyphenator\n"
-"POT-Creation-Date: 2015-07-30 16:51+0200\n"
-"PO-Revision-Date: 2015-07-30 16:51+0200\n"
+"POT-Creation-Date: 2015-10-17 23:16+0200\n"
+"PO-Revision-Date: 2015-10-17 23:28+0200\n"
 "Last-Translator: Maciej Gryniuk <maciejka45@gmail.com>\n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.3\n"
+"X-Generator: Poedit 1.8.5\n"
 
 msgid "Hyphenator"
 msgstr ""
@@ -22,24 +22,24 @@ msgid ""
 msgstr ""
 
 # # short phrases
-#: options.php:168 plugin.php:41
+#: options.php:170 plugin.php:43
 msgid "Hyphenator Options"
 msgstr "Hyphenator-Einstellungen"
 
-#: options.php:171
+#: options.php:172
 msgid "Introduction"
 msgstr "Einführung"
 
 # # long text
-#: options.php:173
+#: options.php:174
 msgid ""
-"Hyphenator automatically inserts seperators in the content, so that at the "
+"Hyphenator automatically inserts separators in the content, so that at the "
 "end of line the text is wrapped with a dash if applicable. Hyphenator.js, a "
 "JavaScript available under the terms of LGPL v3, is used. It fields the "
-"algorithm known from OpenOffice and LaTeX. As this is executed client-"
-"sidedly, it adapts itself to the respective browser environment and thus "
-"avoids a faulty display. The script is particularly suitable for "
-"justification and supports a variety of languages."
+"algorithm known from OpenOffice and LaTeX. As this is executed on client "
+"side, it adapts itself to the respective browser environment and thus avoids "
+"a faulty display. The script is particularly suitable for justification and "
+"supports a variety of languages."
 msgstr ""
 "Hyphenator fügt automatisch Trennzeichen in den Seiteninhalt ein, so dass am "
 "Zeilenende gegebenenfalls mit einem Bindestrich umgebrochen wird. Verwendet "
@@ -50,26 +50,27 @@ msgstr ""
 "eignet sich besonders für Blocksatz und unterstützt eine Vielzahl von "
 "Sprachen."
 
-#: options.php:174
+#: options.php:175
 msgid ""
 "Supported browsers: Mozilla Firefox since version 3, Opera since version "
 "7.10, Internet Explorer since version 6.0, Apple Safari since version 2 and "
-"any other browser supporting &amp;shy; as well as JavaScript."
+"any other browser supporting <strong>&amp;shy;</strong> as well as "
+"JavaScript."
 msgstr ""
 "Unterstütze Webbrowser: Mozilla Firefox ab Version 3, Opera ab Version 7.10, "
 "Internet Explorer ab Version 6.0, Apple Safari ab Version 2 sowie jeder "
-"andere Browser der &amp;shy; sowie JavaScript unterstützt."
+"andere Browser der <strong>&amp;shy;</strong> sowie JavaScript unterstützt."
 
-#: options.php:176
+#: options.php:177
 msgid "Configuration"
 msgstr "Konfiguration"
 
-#: options.php:177
+#: options.php:178
 msgid ""
 "Hyphenator can only be adapted to an HTML class. It is therefore "
 "imperatively necessary that the content which should be filtered already has "
 "its own class in the source code of the page, otherwise such class should be "
-"adde at the page design. Mostly, however, an appropriate class already "
+"added at the page design. Mostly, however, an appropriate class already "
 "exists and can be directly used. Unfortunately, it is necessary that you are "
 "able to read HTML. Otherwise, the only possibility is to give the often used "
 "class names \"post\", \"entry\" and \"content\" a try."
@@ -83,7 +84,7 @@ msgstr ""
 "oft verwendeten Klassennamen \"post\", \"entry\" und \"content\" "
 "auszuprobieren."
 
-#: options.php:178
+#: options.php:179
 msgid ""
 "Moreover, it is important for the filtered elements that a language is "
 "defined in the HTML code. This can also be specified by a parent element. "
@@ -95,7 +96,7 @@ msgstr ""
 "festgelegt sein. Nur so weiß Hyphenator, welcher Sprachfilter angewendet "
 "werden muss. Zum Glück ist auch dies sehr häufig bereits im Design definiert."
 
-#: options.php:179
+#: options.php:180
 msgid ""
 "Should there be questions regarding the right class name or the setting of "
 "the language attribute, it can be simply asked at the WordPress Forums."
@@ -105,101 +106,116 @@ msgstr ""
 "werden."
 
 #: options.php:185
-msgid "class name of content to hyphenate"
-msgstr "Klassen-Name des zu trennenden Inhalts"
-
-#: options.php:187 options.php:191 options.php:195 options.php:201
-#: options.php:261 options.php:267 options.php:272 options.php:277
-#: options.php:282
-msgid "default"
-msgstr "Voreinstellung"
-
-#: options.php:189
-msgid "class name of content to don't hyphenate"
+msgid "General"
 msgstr ""
 
-#: options.php:193
-msgid "minimal length of words"
+#: options.php:187
+msgid "Script hook"
+msgstr ""
+
+#: options.php:192 options.php:196 options.php:200 options.php:204
+#: options.php:265 options.php:273 options.php:279 options.php:285
+#: options.php:291
+msgid "Default"
+msgstr "Voreinstellung"
+
+#: options.php:194
+msgid "Class name of content to hyphenate"
+msgstr "Klassen-Name des zu trennenden Inhalts"
+
+#: options.php:198
+msgid "Class name of content to do NOT hyphenate"
+msgstr ""
+
+#: options.php:202
+msgid "Minimal length of words"
 msgstr "minimale Länge von Wörtern"
 
-#: options.php:199
-msgid "filtered languages"
+#: options.php:207
+msgid "Filtered languages"
 msgstr "zu filternde Sprachen"
 
-#: options.php:201
-msgid "automatic"
+#: options.php:211
+msgid "Automatic"
 msgstr "automatisch"
 
-#: options.php:202
-msgid "manual"
+#: options.php:212
+msgid "default"
+msgstr "voreinstellung"
+
+#: options.php:217
+msgid "Manual"
 msgstr "manuell"
 
-#: options.php:202
+#: options.php:218
 msgid "faster"
 msgstr "schneller"
 
-#: options.php:232
-msgid "default language"
+#: options.php:239
+msgid "Default language"
 msgstr "Standardsprache"
 
-#: options.php:232
-msgid "used in case no lang-attribute could be found"
+#: options.php:240
+msgid "Used in case no lang-attribute could be found"
 msgstr "wird verwendet, falls kein lang-Attribut gefunden werden konnte"
 
-#: options.php:258
-msgid "exceptions"
+#: options.php:261
+msgid "Exceptions"
 msgstr "Ausnahmen"
 
-#: options.php:260
-msgid "example"
+#: options.php:264
+msgid "Example"
 msgstr "Beispiel"
 
-#: options.php:260
+#: options.php:264
 msgid "WordPress will never be devided, Benedict only on the given positions"
 msgstr "WordPress wird nie getrennt, Benedict nur an den definierten Stellen"
 
 # # multiple short phrases
-#: options.php:261
+#: options.php:265
 msgid "none"
 msgstr "keine"
 
-#: options.php:263
+#: options.php:268
 msgid "Optional"
 msgstr "Optional"
 
-#: options.php:264
-msgid "display an on-off switch"
+#: options.php:270
+msgid "Display an on-off switch"
 msgstr "An/Aus-Schalter anzeigen"
 
-#: options.php:267 options.php:272 options.php:277 options.php:282
+#: options.php:273 options.php:279 options.php:285 options.php:291
 msgid "no"
 msgstr "nein"
 
-#: options.php:269
-msgid "display each hyphen character for testing"
+msgid "yes"
+msgstr ""
+
+#: options.php:276
+msgid "Display each hyphen character for testing"
 msgstr "jedes Trennzeichen zum Testen anzeigen"
 
-#: options.php:274
-msgid "use Hyphenator.js from developer trunk"
+#: options.php:282
+msgid "Use Hyphenator.js from developer trunk"
 msgstr "benutze Hyphenator.js vom Entwickler-Zweig"
 
-#: options.php:277
+#: options.php:285
 msgid "security risk"
 msgstr "Sicherheitsrisiko"
 
-#: options.php:279
-msgid "do not hide content during hyphenation"
+#: options.php:288
+msgid "Do not hide content during hyphenation"
 msgstr "Inhalt während dem Trennvorgang nicht verbergen"
 
-#: options.php:285
+#: options.php:295
 msgid "Save Changes"
 msgstr "Änderungen speichern"
 
-#: options.php:290
+#: options.php:299
 msgid "And now?"
 msgstr "Und jetzt?"
 
-#: options.php:291
+#: options.php:300
 msgid ""
 "That's all. If you like the plugin, then recommend Hyphenator to your "
 "friends."
@@ -207,9 +223,12 @@ msgstr ""
 "Das war alles. Wenn dir das Plugin gefällt, dann empfehle Hyphenator doch an "
 "deine Freunde weiter."
 
-#: options.php:293
-msgid "You can never be sure."
-msgstr "Ihr könnt Euch niemals sicher sein."
+#: plugin.php:66
+msgid "Settings"
+msgstr ""
+
+#~ msgid "You can never be sure."
+#~ msgstr "Ihr könnt Euch niemals sicher sein."
 
 #~ msgid "Optionaly"
 #~ msgstr "Optional"

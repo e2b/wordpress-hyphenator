@@ -3,8 +3,8 @@ Contributors: e2b, odie2
 Donate link:
 Tags: hyphenator, hyphenation, hyphenate, hyphen, softhyphen, pattern, JavaScript, HTML, XHTML, shy, Silbentrennung, Worttrennung, Trennmuster
 Requires at least: 2.7
-Tested up to: 4.4.2
-Stable tag: 5.1.0
+Tested up to: 4.4.3
+Stable tag: 5.1.1
 
 Soft hyphens are automatically added in the content for a nicer automatic word wrap. Particularly suitable for justification. Uses Hyphenator.js.
 
@@ -92,6 +92,14 @@ And any other modern browser that supports JavaScript and the soft hyphen (&amp;
 1. settings backend of version 4.0.0
 
 == Changelog ==
+= 5.1.5 (18.10.2015) =
+* option "Do not hide content during hyphenation" is now activated by default
+* completely rewrited main plugin file
+** better performance
+** option to hook script in `wp_footer()` instead of `wp_head()`
+** script files' version the same as plugin's version if not using developer trunk
+* cleaner settings plugin file and its output
+
 = 5.1.0 (30.07.2015) =
 * updated to Hyphenator.js 5.1.0
    * Added support for Romanian and Serbian cyrillic.
